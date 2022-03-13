@@ -49,20 +49,18 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item ml-2 ">
-                                        <a href="/WebPHP/admin/modules/product/index.php" class="nav-link ">
+                                        <a href="/WebShop/admin/san-pham" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Danh sách Sách</p>
                                         </a>
                                     </li>
                                     <li class="nav-item ml-2 ">
 
-                                        <a href="/WebPHP/admin/modules/category/index.php" class="nav-link">
+                                        <a href="#" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Thể loại sách</p>
                                         </a>
                                     </li>
-                                   
-
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -91,12 +89,8 @@
                                             </p>
                                         </a>
                                     </li>
-                                   
                                 </ul>
-
-
                             </li>
-
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon text-success"></i>

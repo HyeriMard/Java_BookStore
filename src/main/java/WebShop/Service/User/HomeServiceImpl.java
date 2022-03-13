@@ -53,4 +53,18 @@ public class HomeServiceImpl implements IHomeService{
 		List<ProductDto> listProduct = productsDao.GetDataThreeProduct();
 		return listProduct;
 	}
+	//phan admin
+	public List<ProductDto> GetProducts() {
+		List<ProductDto> listProduct = productsDao.GetProducts();
+		return listProduct;
+	}
+	public int CreateProduct(ProductDto newPro) {
+		return 	productsDao.CreateProdut(newPro);
+	}
+	public List<ProductDto> GetProductByID(long id) {
+		return 	productsDao.GetOneProductsByID(id);
+	}
+	public int DeleteProduct(long id) {
+		return 	productsDao.DeleteProdut(id);
+	}
 }

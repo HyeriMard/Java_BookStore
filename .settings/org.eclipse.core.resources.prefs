@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/java/WebShop/Controller/Admin/ProductAdminController.java=UTF-8
+encoding//src/main/java/WebShop/Dao/ProductsDao.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/layouts/admin/header_ad.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/layouts/user.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/layouts/user/header.jsp=UTF-8
