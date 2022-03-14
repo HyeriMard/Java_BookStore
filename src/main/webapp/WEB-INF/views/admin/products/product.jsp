@@ -49,13 +49,20 @@
 							<!-- Tieu de -->
 							<td class="text-center">${item.title}</td>
 							<!-- Thể loai-->
-							<td class="text-center">Thể loại</td>
+							<td class="text-center">
+								<c:forEach var="cate" items="${ cates }" varStatus="loop">
+									<c:if test="${cate.id ==item.cateID}">
+											${cate.name}
+									</c:if>
+									
+								</c:forEach>
+							</td>
 							<!--Giá-->
 							<td class="text-center">${item.price}</td>
 
 							<!--Chức năng-->
 							<td class="text-center">
-								<a class="btn btn-info btn-sm" href="" role="button">
+								<a class="btn btn-info btn-sm"  href="sua-san-pham/${item.id}" role="button">
 								 	<i class="fas fa-edit"></i>
 								</a> 
 								<a class="btn btn-danger btn-sm" href="comfirm-xoa-san-pham/${item.id}" role="button"> 

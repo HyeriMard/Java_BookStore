@@ -5,22 +5,22 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Thêm sản phẩm</title>
+<title>Sửa sản phẩm</title>
 </head>
 <body>
-	<form:form action="them-san-pham" method="POST" modelAttribute="newPro"  enctype="multipart/form-data"  accept-charset="utf-8">
+<form:form action="/WebShop/admin/upload-san-pham/${editPro.id}" method="POST" modelAttribute="editPro"  enctype="multipart/form-data" >
 		<div class="card">
 			<div class="card-header">
 					<h4 class="text-danger">${status}</h4>
 				<h3 class="card-title text-uppercase text-danger">
-					<strong>Thêm mới</strong>
+					<strong>Sửa sản phẩm</strong>
 				</h3>
 				<div class="card-tools">
 					<button class="btn btn-success btn-sm" name="btnsubmit"
 						type="submit">
 						<i class="fa fa-save"></i> Lưu
 					</button>
-					<a class="btn btn-danger btn-sm" href="san-pham" role="button"> <i
+					<a class="btn btn-danger btn-sm" href="/WebShop/admin/san-pham" role="button"> <i
 						class="fa fa-times"></i> Trở lại
 					</a>
 				</div>
@@ -30,7 +30,7 @@
 					<div class="col-8">
 						<div class="form-group">
 							<label for="name" class="control-label">Tên sách</label>
-							<form:input class="form-control" type="text"  path="name" />
+							<form:input class="form-control" type="text"  path="name"  />
 							
 						</div>
 						<div class="form-group">
@@ -63,10 +63,17 @@
 								sách
 								</label>
 							<div class="col-md-10">
-							<form:select path="cateID">
-									<c:forEach var="item" items="${cates}" varStatus="loop" >
-										<option value="${item.id}" >${item.name }</option>
+							<form:select path="cateID"   >
+								<c:forEach var="item" items="${cates}" varStatus="loop" >
+										<c:if test="${item.id == editPro.cateID }"> 
+											<option value="${item.id}" selected>${item.name }</option>
+									</c:if>
+									<c:if test="${item.id != editPro.cateID }"> 
+											<option value="${item.id}" >${item.name }</option>
+									</c:if>
 									</c:forEach>
+									
+									
 							</form:select>
 								
 							</div>
@@ -76,9 +83,5 @@
 			</div>
 		</div>
 	</form:form>
-	<script type="text/javascript">
-	
-	</script>
 </body>
-
 </html>

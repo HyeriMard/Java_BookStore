@@ -53,7 +53,9 @@ public class HomeServiceImpl implements IHomeService{
 		List<ProductDto> listProduct = productsDao.GetDataThreeProduct();
 		return listProduct;
 	}
-	//phan admin
+	//-=-=-=-=-=-=-=-=-=-=phan admin-=-=-=-=-=-
+	
+	//phần product
 	public List<ProductDto> GetProducts() {
 		List<ProductDto> listProduct = productsDao.GetProducts();
 		return listProduct;
@@ -66,5 +68,12 @@ public class HomeServiceImpl implements IHomeService{
 	}
 	public int DeleteProduct(long id) {
 		return 	productsDao.DeleteProdut(id);
+	}
+	public int EditProduct(ProductDto pro) {
+		return 	productsDao.EditProdut(pro);
+	}
+	//phần categpry
+	public List<Categorys> GetCatetByID(long id) {
+		return 	categorysDao.GetCateByID(id);
 	}
 }

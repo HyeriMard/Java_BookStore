@@ -1,6 +1,6 @@
 package WebShop.Dao;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import WebShop.Dto.ProductDto;
 import WebShop.Dto.ProductsDtoMapper;
-
 
 @Repository
 public class ProductsDao extends BaseDao {
@@ -47,7 +46,7 @@ public class ProductsDao extends BaseDao {
 		sql.append("WHERE 1 = 1 AND cateID = " + id + " ");
 		return sql;
 	}
-	
+
 	private String SqlProductPaginate(int id, int start, int totalPage) {
 		StringBuffer sql = SqlProductByID(id);
 		sql.append("LIMIT " + start + ", " + totalPage);
@@ -71,7 +70,7 @@ public class ProductsDao extends BaseDao {
 		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
 		return listProducts;
 	}
-	
+
 	public List<ProductDto> GetDataThreeProduct() {
 		String sql = "SELECT * FROM `products` ORDER BY RAND() LIMIT 3";
 		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
@@ -112,58 +111,83 @@ public class ProductsDao extends BaseDao {
 		ProductDto listProduct = jdbcTemplate.queryForObject(sql, new ProductsDtoMapper());
 		return listProduct;
 	}
-	
-	//Phầm admin
+
+	// -=-=-=-==-=-=-=-=-=-=-=
+	// Phầm admin
 	public List<ProductDto> GetProducts() {
 		String sql = "SELECT * FROM `products`";
 		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
 		return listProducts;
 	}
+
 	public int CreateProdut(ProductDto newPro) {
-		
+
 		try {
 			StringBuffer sql = new StringBuffer();
-			//lấy ngay hien tai
+			// lấy ngay hien tai
 			java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-	
+
 			sql.append("INSERT INTO `products` ");
-			sql.append("(`id`, `cateID`, `name`, `price`, `sale`, `title`, `highlight`, `new_product`, `detail`, `created_at`, `updated_at`, `picture`)");
+			sql.append(
+					"(`id`, `cateID`, `name`, `price`, `sale`, `title`, `highlight`, `new_product`, `detail`, `created_at`, `updated_at`, `picture`)");
 			sql.append("VALUES ");
 			sql.append("(NULL, ");
-			sql.append("    '" + newPro.getCateID() + "', "); //cateID
-			sql.append("    '" + newPro.getName() + "', ");   //name
-			sql.append("    '" + newPro.getPrice() + "', ");  //price
-			sql.append("    ' 0 ', ");							  //sale
-			sql.append("    '" + newPro.getTitle() + "', ");  //title
-			sql.append("    ' 1 ', ");							  //highlight
-			sql.append("    ' 1 ', ");						//new_product
-			sql.append("    '" + newPro.getDetail() + "', ");     //Detail
-			sql.append("    '"+date+"', ");  //created_at => 
-			sql.append("    '"+date+"', ");  //updated_at (create -> created_at=updated_at)
-			sql.append("    '" + newPro.getPicture() + "' ");  				  //img
+			sql.append("    '" + newPro.getCateID() + "', "); // cateID
+			sql.append("    '" + newPro.getName() + "', "); // name
+			sql.append("    '" + newPro.getPrice() + "', "); // price
+			sql.append("    ' 0 ', "); // sale
+			sql.append("    '" + newPro.getTitle() + "', "); // title
+			sql.append("    ' 1 ', "); // highlight
+			sql.append("    ' 1 ', "); // new_product
+			sql.append("    '" + newPro.getDetail() + "', "); // Detail
+			sql.append("    '" + date + "', "); // created_at =>
+			sql.append("    '" + date + "', "); // updated_at (create -> created_at=updated_at)
+			sql.append("    '" + newPro.getPicture() + "' "); // img
 			sql.append(")");
 			int insert = jdbcTemplate.update(sql.toString());
 			return insert;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			return 0;
 		}
-	
-		
+
 	}
+
 	public int DeleteProdut(long id) {
 		try {
-			String sql="DELETE FROM `products` WHERE `products`.`id` ="+id;
-			
+			String sql = "DELETE FROM `products` WHERE `products`.`id` =" + id;
+
 			int insert = jdbcTemplate.update(sql.toString());
 			return insert;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			return 0;
 		}
-				
-		
-		
+
 	}
-	
+
+	public int EditProdut(ProductDto pro) {
+		// try {
+
+		// lấy ngay hien tai
+		java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+		StringBuffer sql = new StringBuffer();
+		sql.append("UPDATE `products` SET ");
+		sql.append("`cateID` = '" + pro.getCateID() + "', ");
+		sql.append("`name` = '" + pro.getName() + "', ");
+		sql.append("`price` = '" + pro.getPrice() + "', ");
+		sql.append("`title` = '" + pro.getTitle() + "', ");
+		sql.append("`detail` = '" + pro.getDetail() + "', ");
+		sql.append("`picture` = '" + pro.getPicture() + "', ");
+		sql.append("`updated_at` = '" + date + "' ");
+		sql.append(" WHERE `id`= '" + pro.getId()+"' ");
+		
+		int insert = jdbcTemplate.update(sql.toString());
+		return insert;
+		// }
+//		catch (Exception e) {
+//			return 0;
+//		}
+
+	}
+
 }
