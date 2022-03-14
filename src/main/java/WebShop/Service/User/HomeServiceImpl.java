@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import WebShop.Dao.BillsDao;
 import WebShop.Dao.CategorysDao;
 import WebShop.Dao.MenusDao;
 import WebShop.Dao.ProductsDao;
 import WebShop.Dao.SlidesDao;
 import WebShop.Dto.ProductDto;
+import WebShop.Enity.Bills;
+import WebShop.Enity.BillsDetail;
 import WebShop.Enity.Categorys;
 import WebShop.Enity.Menus;
 import WebShop.Enity.Slides;
@@ -24,6 +27,8 @@ public class HomeServiceImpl implements IHomeService{
 	private MenusDao menusDao;
 	@Autowired
 	private ProductsDao productsDao;
+	@Autowired
+	private BillsDao billDao;
 	
 	public List<Slides> GetDataSlide() {
 		return slidesDao.GetDataSlide();
@@ -72,6 +77,17 @@ public class HomeServiceImpl implements IHomeService{
 	public int EditProduct(ProductDto pro) {
 		return 	productsDao.EditProdut(pro);
 	}
+	//Phần bill
+	public List<Bills> GetBills() {
+		return 	billDao.GetBills();
+	}
+	public List<Bills> GetBillByID(long id) {
+		return 	billDao.GetBillByID(id);
+	}public List<BillsDetail> GetBillDetailByIDBill(long id) {
+		return 	billDao.GetBillDetailByIDBill(id);
+	}
+	
+	
 	//phần categpry
 	public List<Categorys> GetCatetByID(long id) {
 		return 	categorysDao.GetCateByID(id);

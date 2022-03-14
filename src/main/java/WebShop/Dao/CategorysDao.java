@@ -17,7 +17,7 @@ public class CategorysDao extends BaseDao{
 		list = jdbcTemplate.query(sql, new MapperCategorys());
 		return list;
 	}
-	
+	//-=-=-=-=-=-=-=-=-===-=-=- phần admin
 	public List<Categorys> GetCateByID(long id) {
 		List<Categorys> list = new ArrayList<Categorys>();
 		String sql = "SELECT * FROM `categorys` WHERE id = " + id;

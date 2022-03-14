@@ -165,7 +165,7 @@ public class ProductsDao extends BaseDao {
 	}
 
 	public int EditProdut(ProductDto pro) {
-		// try {
+		 try {
 
 		// lấy ngay hien tai
 		java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
@@ -183,10 +183,10 @@ public class ProductsDao extends BaseDao {
 		
 		int insert = jdbcTemplate.update(sql.toString());
 		return insert;
-		// }
-//		catch (Exception e) {
-//			return 0;
-//		}
+		 }
+		catch (Exception e) {
+			return 0;
+		}
 
 	}
 
