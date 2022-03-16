@@ -1,6 +1,7 @@
 package WebShop.Service.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,15 @@ public class BillServiceImpl implements IBillService {
 			billsDao.AddBillsDetail(billsDetail);
 		}
 
+	}
+	//-=-=-=-=admin-=-=-=-=-=-
+	@Override
+	public List<Bills> GetBills() {
+		return 	billsDao.GetBills();
+	}
+	@Override
+	public List<Bills> GetBillByID(long id) {
+		return 	billsDao.GetBillByID(id);
 	}
 
 }

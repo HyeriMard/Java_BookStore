@@ -60,34 +60,7 @@ public class HomeServiceImpl implements IHomeService{
 	}
 	//-=-=-=-=-=-=-=-=-=-=phan admin-=-=-=-=-=-
 	
-	//phần product
-	public List<ProductDto> GetProducts() {
-		List<ProductDto> listProduct = productsDao.GetProducts();
-		return listProduct;
-	}
-	public int CreateProduct(ProductDto newPro) {
-		return 	productsDao.CreateProdut(newPro);
-	}
-	public List<ProductDto> GetProductByID(long id) {
-		return 	productsDao.GetOneProductsByID(id);
-	}
-	public int DeleteProduct(long id) {
-		return 	productsDao.DeleteProdut(id);
-	}
-	public int EditProduct(ProductDto pro) {
-		return 	productsDao.EditProdut(pro);
-	}
-	//Phần bill
-	public List<Bills> GetBills() {
-		return 	billDao.GetBills();
-	}
-	public List<Bills> GetBillByID(long id) {
-		return 	billDao.GetBillByID(id);
-	}public List<BillsDetail> GetBillDetailByIDBill(long id) {
-		return 	billDao.GetBillDetailByIDBill(id);
-	}
-	
-	
+
 	//phần categpry
 	public List<Categorys> GetCatetByID(long id) {
 		return 	categorysDao.GetCateByID(id);

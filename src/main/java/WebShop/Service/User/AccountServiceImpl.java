@@ -29,4 +29,19 @@ public class AccountServiceImpl implements IAccountService {
 		}
 		return null;
 	}
+	@Override
+	public Users LoginAmin(Users user) {
+		String pass = user.getPassword();
+		user = usersDao.GetUserAdmin(user);
+		if (user != null) {
+			if (BCrypt.checkpw(pass, user.getPassword())) {
+				return user;
+			} else {
+				return null;
+			}
+		}
+		return null;
+	
+		
+	}
 }

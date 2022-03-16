@@ -8,19 +8,23 @@ import org.springframework.web.servlet.ModelAndView;
 import WebShop.Controller.User.BaseController;
 import WebShop.Service.User.HomeServiceImpl;
 @Controller
-public class CategoryAdminController  extends BaseController{
+public class CategoryAdminController  extends BaseAdminController{
 	@Autowired
 	HomeServiceImpl _homeService;
 	
 	
 	@RequestMapping(value = "/admin/the-loai")
 	public ModelAndView Index() {
-		
-	
-		// lấy danh sách thể loại
-		mvShare.addObject("cates", _homeService.GetDataCategorys());
+		if(isLogin()) {
+			mvShare.clear();
+			// lấy danh sách thể loại
+						mvShare.addObject("cates", _homeService.GetDataCategorys());
 
-		mvShare.setViewName("admin/categoris/category");
+						mvShare.setViewName("admin/categoris/category");
+		}
+			
 		return mvShare;
 	}
+	
+	
 }

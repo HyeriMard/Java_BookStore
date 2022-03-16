@@ -28,4 +28,18 @@ public class UsersDao extends BaseDao {
 		Users result = jdbcTemplate.queryForObject(sql, new MapperUsers());
 		return result;
 	};
+	//-=-=--=-=-
+	public Users GetUserAdmin(Users user) {
+		try {
+			String sql = "SELECT * FROM users WHERE `roleID` = 1 and user = '" + user.getUser() + "'";
+					
+			Users result = jdbcTemplate.queryForObject(sql, new MapperUsers());
+		
+			return result;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	
+	};
 }

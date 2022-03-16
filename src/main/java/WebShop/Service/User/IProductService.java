@@ -10,4 +10,9 @@ import WebShop.Dto.ProductDto;
 public interface IProductService {
 	public ProductDto GetOneProductsByID(long id);
 	public List<ProductDto> GetOneProductsByIDCategory(int id);
+	public List<ProductDto> GetProducts();
+	public int CreateProduct(ProductDto newPro);
+	public List<ProductDto> GetProductByID(long id);
+	public int DeleteProduct(long id);
+	public int EditProduct(ProductDto pro) ;
 }

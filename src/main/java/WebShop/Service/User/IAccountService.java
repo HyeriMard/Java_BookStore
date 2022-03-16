@@ -9,4 +9,5 @@ public interface IAccountService {
 	public int AddAccount(Users user);
 	
 	public Users CheckAccount(Users user);
+	public Users LoginAmin(Users user);
 }
