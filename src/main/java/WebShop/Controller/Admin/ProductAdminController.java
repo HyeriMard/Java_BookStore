@@ -69,8 +69,7 @@ public class ProductAdminController extends BaseController {
 		// chuyen charset sang UTF-8
 		ProductDto pro = ConvertCharsets(newPro);
 
-		System.out.print(pro.getName());
-		System.out.print("Chuyện Con Mèo Dạy Hải Âu Bay ");
+		
 		// kiem tra xem đủ thông tin chưa
 		if (photo.isEmpty() || pro.getDetail().equals("") || pro.getName().equals("") || pro.getTitle().equals("")
 				|| pro.getPrice() == 0.0) {

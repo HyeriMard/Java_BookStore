@@ -92,4 +92,13 @@ public class HomeServiceImpl implements IHomeService{
 	public List<Categorys> GetCatetByID(long id) {
 		return 	categorysDao.GetCateByID(id);
 	}
+	public int CreateCategory(Categorys newCate) {
+		return 	categorysDao.CreateCategory(newCate);
+	}
+	public int DeleteCate(long id) {
+		return 	categorysDao.DeleteCate(id);
+	}
+	public int EditCategory(Categorys editCate) {
+		return 	categorysDao.EditCategory(editCate);
+	}
 }
