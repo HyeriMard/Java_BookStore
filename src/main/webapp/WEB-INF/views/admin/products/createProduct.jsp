@@ -8,7 +8,7 @@
 <title>Thêm sản phẩm</title>
 </head>
 <body>
-	<form:form action="them-san-pham" method="POST" modelAttribute="newPro"  enctype="multipart/form-data"  accept-charset="utf-8">
+	<form:form action="them-the-loai" method="POST" modelAttribute="newPro"  enctype="multipart/form-data"  accept-charset="utf-8">
 		<div class="card">
 			<div class="card-header">
 					<h4 class="text-danger">${status}</h4>

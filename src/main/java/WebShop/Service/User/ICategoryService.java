@@ -13,7 +13,15 @@ public interface ICategoryService {
 
 	public List<ProductDto> GetDataProductsPaginate(int id, int start, int end);
 	
-	//-=-=-=-=-=--==-=-=phần  admin-=-=-=-=-=-=-
 	public List<Categorys> GetCatetByID(long id);
+	
+	public int CreateCategory(Categorys newCate);
+	
+	public int DeleteCate(long id);
+	
+	public int EditCategory(Categorys editCate);
+	
+	
+	
 	public List<Categorys> GetDataCategorys();
 }

@@ -14,7 +14,7 @@
 				<strong class="text-uppercase text-danger">Danh sách thể loại</strong>
 			</h3>
 			<div class="card-tools">
-				<a class="btn btn-success btn-sm" href="them-san-pham" role="button">
+				<a class="btn btn-success btn-sm" href="them-the-loai" role="button">
 					<i class="fas fa-plus"></i> Thêm mới
 				</a>
 			</div>
@@ -43,8 +43,8 @@
 							<td class="text-center">${item.description}</td>
 							<!--Chức năng-->
 							<td class="text-center"><a class="btn btn-info btn-sm"
-								href="#" role="button"> <i class="fas fa-edit"></i>
-							</a> <a class="btn btn-danger btn-sm" href=# " role="button"> <i
+								href="sua-the-loai/${item.id}"role="button"> <i class="fas fa-edit"></i>
+							</a> <a class="btn btn-danger btn-sm" href= "xoa-the-loai/${item.id} " role="button"> <i
 									class="fas fa-trash-alt"></i>
 							</a></td>
 						</tr>

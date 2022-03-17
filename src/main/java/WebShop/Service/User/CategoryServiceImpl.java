@@ -17,22 +17,44 @@ public class CategoryServiceImpl implements ICategoryService {
 	private ProductsDao productsDao;
 	@Autowired
 	private CategorysDao categorysDao;
-
+	
+	
+	
 	@Override
 	public List<ProductDto> GetAllProductsByID(int id) {
 		return productsDao.GetAllProductsByID(id);
 	}
-
 	@Override
 	public List<ProductDto> GetDataProductsPaginate(int id, int start, int totalPage) {
 		return productsDao.GetDataProductsPaginate(id, 0, totalPage);
 	}
 	
-	//-=-=-=-=-=-=-=-=phần admin-==-=-=-=-=-=-=
+	
+	
+	
+	//categoryAdmin
 	@Override
 	public List<Categorys> GetCatetByID(long id) {
 		return 	categorysDao.GetCateByID(id);
 	}
+	@Override
+	public int CreateCategory(Categorys newCate) {
+		return 	categorysDao.CreateCategory(newCate);
+	}
+	@Override
+	public int DeleteCate(long id) {
+		return 	categorysDao.DeleteCate(id);
+	}
+	@Override
+	public int EditCategory(Categorys editCate) {
+		return 	categorysDao.EditCategory(editCate);
+	}
+	
+	
+	
+	
+	
+	
 	@Override
 	public List<Categorys> GetDataCategorys() {
 		return categorysDao.GetDataCategorys();
