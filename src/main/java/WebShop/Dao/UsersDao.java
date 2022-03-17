@@ -16,7 +16,7 @@ public class UsersDao extends BaseDao {
 		sql.append("     '" + user.getUser() + "', ");
 		sql.append("     '" + user.getPassword() + "', ");
 		sql.append("     '" + user.getDisplay_name() + "', ");
-		sql.append("     '" + user.getAddress() + "' ");
+		sql.append("     '" + user.getAddress() + "', ");
 		sql.append("     '" + 2 + "' ");
 		sql.append(")");
 		int insert = jdbcTemplate.update(sql.toString());
