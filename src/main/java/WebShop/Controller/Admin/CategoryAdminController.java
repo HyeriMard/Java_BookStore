@@ -19,7 +19,7 @@ import WebShop.Enity.Categorys;
 import WebShop.Service.User.CategoryServiceImpl;
 import WebShop.Service.User.HomeServiceImpl;
 @Controller
-public class CategoryAdminController  extends BaseController{
+public class CategoryAdminController  extends BaseAdminController{
 	@Autowired
 	CategoryServiceImpl _categoryService;
 	
@@ -27,21 +27,32 @@ public class CategoryAdminController  extends BaseController{
 	@RequestMapping(value = "/admin/the-loai")
 	public ModelAndView Index() {
 		
-		mvShare.clear();
-		// lấy danh sách thể loại
-		mvShare.addObject("cates", _categoryService.GetDataCategorys());
+		
+		if (isLogin()) {
+			mvShare.clear();
+			// lấy danh sách thể loại
+			mvShare.addObject("cates", _categoryService.GetDataCategorys());
 
-		mvShare.setViewName("admin/categoris/category");
+			mvShare.setViewName("admin/categoris/category");
+		}
+		
+	
 		return mvShare;
 	}
 	
 	
 	@RequestMapping(value = "/admin/them-the-loai", method = RequestMethod.GET)
 	public ModelAndView CreateCate() {
-		mvShare.clear();
-		// lấy danh sách thể loại
-		mvShare.setViewName("admin/categoris/createCategory");
-		mvShare.addObject("newCate", new Categorys());
+		
+		
+		
+		if (isLogin()) {
+			mvShare.clear();
+			// lấy danh sách thể loại
+			mvShare.setViewName("admin/categoris/createCategory");
+			mvShare.addObject("newCate", new Categorys());
+		}
+	
 		return mvShare;
 	}
 	
@@ -95,12 +106,16 @@ public class CategoryAdminController  extends BaseController{
 	// xóa thể loại
 		@RequestMapping(value = "/admin/xoa-the-loai/{id}", method = RequestMethod.GET)
 		public ModelAndView ComfirmCategory(@PathVariable long id) {
-			mvShare.clear();
 			
-			// lấy thể loại 
-			mvShare.addObject("cate", _categoryService.GetCatetByID(id).get(0));
+			if (isLogin()) {
+				mvShare.clear();
+				
+				// lấy thể loại 
+				mvShare.addObject("cate", _categoryService.GetCatetByID(id).get(0));
 
-			mvShare.setViewName("admin/categoris/deleteCategory");
+				mvShare.setViewName("admin/categoris/deleteCategory");
+			}
+		
 			return mvShare;
 		}
 		
@@ -128,12 +143,17 @@ public class CategoryAdminController  extends BaseController{
 		// sửa thể loại
 		@RequestMapping(value = "/admin/sua-the-loai/{id}", method = RequestMethod.GET)
 		public ModelAndView editCategory(@PathVariable long id) {
-			mvShare.clear();
 			
-			// lấy thể loại 
-			mvShare.addObject("editCate", _categoryService.GetCatetByID(id).get(0));
+			
+			if (isLogin()) {
+				mvShare.clear();
+				
+				// lấy thể loại 
+				mvShare.addObject("editCate", _categoryService.GetCatetByID(id).get(0));
 
-			mvShare.setViewName("admin/categoris/editCategory");
+				mvShare.setViewName("admin/categoris/editCategory");
+			}
+		
 			return mvShare;
 		}
 		
