@@ -8,7 +8,7 @@
 <title>Sửa sản phẩm</title>
 </head>
 <body>
-<form:form action="/WebShop/admin/upload-san-pham/${editPro.id}" method="POST" modelAttribute="editPro"  enctype="multipart/form-data" >
+<form:form action="/WebShop/admin/sua-san-pham" method="POST" modelAttribute="editPro"  enctype="multipart/form-data" >
 		<div class="card">
 			<div class="card-header">
 					<h4 class="text-danger">${status}</h4>
@@ -28,6 +28,7 @@
 			<div class="card-body">
 				<div class="row form-horizontal">
 					<div class="col-8">
+					<form:input class="form-control" type="hidden"  path="id"  />
 						<div class="form-group">
 							<label for="name" class="control-label">Tên sách</label>
 							<form:input class="form-control" type="text"  path="name"  />

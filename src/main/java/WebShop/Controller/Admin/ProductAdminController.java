@@ -168,16 +168,16 @@ public class ProductAdminController extends BaseAdminController {
 		return mvShare;
 	}
 
-	@RequestMapping(value = "/admin/upload-san-pham/{id}", method = RequestMethod.POST)
-	public ModelAndView Edit(@PathVariable long id, @ModelAttribute("editPro") ProductDto editPro,
+	@RequestMapping(value = "/admin/sua-san-pham", method = RequestMethod.POST)
+	public ModelAndView Edit(@ModelAttribute("editPro") ProductDto editPro,
 			@RequestParam(value = "img", required = false) MultipartFile photo) {
 		mvShare.clear();
 		// chuyen charset sang UTF-8
 		ProductDto pro = ConvertCharsets(editPro);
 		// gán id cho pro này
-		pro.setId(id);
+		pro.setId(editPro.getId());
 		// lấy id để tìm pro trong database
-		ProductDto pro_temp = _productService.GetProductByID(id).get(0);
+		ProductDto pro_temp = _productService.GetProductByID(editPro.getId()).get(0);
 		// set img cũ tạm
 		pro.setPicture(pro_temp.getPicture());
 

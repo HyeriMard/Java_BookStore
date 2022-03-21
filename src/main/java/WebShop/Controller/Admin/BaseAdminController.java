@@ -16,7 +16,7 @@ import WebShop.Controller.User.BaseController;
 import WebShop.Service.User.HomeServiceImpl;
 
 public class BaseAdminController extends HttpServlet {
-	HomeServiceImpl _homeService;
+
 	public ModelAndView mvShare = new ModelAndView();
 	public static HttpSession session;
 

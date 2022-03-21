@@ -159,13 +159,13 @@ public class CategoryAdminController  extends BaseAdminController{
 		
 		
 		
-		@RequestMapping(value = "/admin/edit-the-loai/{id}", method = RequestMethod.POST)
-		public ModelAndView Edit(@PathVariable int id, @ModelAttribute("editCate") Categorys editCate) {
+		@RequestMapping(value = "/admin/sua-the-loai", method = RequestMethod.POST)
+		public ModelAndView Edit(@ModelAttribute("editCate") Categorys editCate) {
 			// chuyen charset sang UTF-8
 			System.out.print("vao dc");
 			Categorys cate = ConvertCharsets(editCate);
 			
-			cate.setId(id);
+			cate.setId(editCate.getId());
 			if (cate.getName().equals("") || cate.getDescription().equals("")) {
 				mvShare.addObject("status", "Vui lòng nhập đầy đủ thông tin");
 				mvShare.setViewName("admin/products/editProduct");

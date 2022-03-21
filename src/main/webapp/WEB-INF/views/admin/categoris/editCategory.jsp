@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="col-8">
-		<form:form action="/WebShop/admin/edit-the-loai/${editCate.id}" method="POST"  modelAttribute="editCate" >
+		<form:form action="/WebShop/admin/sua-the-loai" method="POST"  modelAttribute="editCate" >
 		<div class="card">
 			<div class="card-header">
 					<h4 class="text-danger">${status}</h4>
@@ -29,6 +29,7 @@
 			<div class="card-body">
 				<div class="row form-horizontal">
 					<div class="col-12">
+						<form:input class="form-control" type="hidden"  path="id"  />
 						<div class="form-group">
 							<label for="name" class="control-label">Tên thể loại</label>
 								<form:input class="form-control" type="text" path="name" />
