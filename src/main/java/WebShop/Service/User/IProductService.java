@@ -13,4 +13,9 @@ public interface IProductService {
 	
 	public List<ProductDto> GetAllProduct();
 	public List<ProductDto> GetAllProductsPaginate( int start, int end);
+	public List<ProductDto> GetProducts();
+	public int CreateProduct(ProductDto newPro);
+	public List<ProductDto> GetProductByID(long id);
+	public int DeleteProduct(long id);
+	public int EditProduct(ProductDto pro) ;
 }

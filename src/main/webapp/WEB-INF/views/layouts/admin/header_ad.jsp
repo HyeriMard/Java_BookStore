@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="/WEB-INF/views/layouts/taglib.jsp"%>
 <div class="wrapper">
@@ -49,93 +49,45 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item ml-2 ">
-                                        <a href="/WebPHP/admin/modules/product/index.php" class="nav-link ">
+                                        <a href="/WebShop/admin/san-pham" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Danh sách Sách</p>
                                         </a>
                                     </li>
                                     <li class="nav-item ml-2 ">
 
-                                        <a href="/WebPHP/admin/modules/category/index.php" class="nav-link">
+                                        <a href="/WebShop/admin/the-loai" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Thể loại sách</p>
                                         </a>
                                     </li>
-                                   
-
                                 </ul>
                             </li>
+                         
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fa fa-shopping-cart"></i>
-                                    <p>
-                                        Quản lý đơn hàng
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
+                                <a href="/WebShop/admin/don-hang" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-success"></i>
+                                    <p>Đơn hàng</p>
                                 </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item ml-2 ">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>
-                                                Đơn hàng chờ duyệt
-                                            </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ml-2 ">
-
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>
-                                                Đơn hàng đang vận chuyển
-                                            </p>
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-
-
                             </li>
-
+                            
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/WebShop/admin/khach-hang" class="nav-link">
                                     <i class="far fa-circle nav-icon text-success"></i>
                                     <p>Khách hàng</p>
                                 </a>
                             </li>
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-chart-pie"></i>
-                                    <p>
-                                        Hệ thống
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-
-                                    <li class="nav-item ml-2">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon text-danger"></i>
-                                            <p>Thành viên</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                           
                       
 
-                        <li class="nav-header">THÔNG TIN</li>
+                       
                         <li class="nav-item ml-2">
-                            <a href="~/Admin/logout" class="nav-link">
+                            <a href="/WebShop/admin/logout" class="nav-link">
                                 <i class="nav-icon far fa-circle text-danger"></i>
                                 <p class="text">Đăng xuất</p>
                             </a>
                         </li>
-                        <li class="nav-item ml-2">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-warning"></i>
-                                <p>Thông tin cá nhân</p>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

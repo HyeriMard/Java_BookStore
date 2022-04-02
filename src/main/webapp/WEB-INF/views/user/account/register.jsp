@@ -15,6 +15,7 @@
 				<div class="span4">
 					<div class="well">
 						<h5>Đăng ký</h5>
+						<h4> ${ status} </h4>
 						<br /> Nhập địa chỉ email<br /> <br />
 						<form:form action="dang-ky" method="POST" modelAttribute="user">
 							<div class="control-group">

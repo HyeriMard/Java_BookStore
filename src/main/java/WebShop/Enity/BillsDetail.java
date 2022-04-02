@@ -6,7 +6,7 @@ public class BillsDetail {
 	private int quanty;
 	private double total;
 	private long id_bills;
-	
+	private String name_product;
 	public BillsDetail() {
 		super();
 	}
@@ -58,5 +58,15 @@ public class BillsDetail {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
+	public String getName_product() {
+		return name_product;
+	}
+
+	public void setName_product(String name_product) {
+		this.name_product = name_product;
+	}
+
+	
 
 }

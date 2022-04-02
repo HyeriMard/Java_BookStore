@@ -1,5 +1,7 @@
 package WebShop.Controller.User;
 
+import java.nio.charset.StandardCharsets;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import WebShop.Enity.Bills;
 import WebShop.Enity.Users;
 import WebShop.Service.User.AccountServiceImpl;
 
@@ -26,12 +29,14 @@ public class UserController extends BaseController{
 	}
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.POST)
 	public ModelAndView CreateAccount(@ModelAttribute("user") Users user) {
+		user=ConvertCharsets(user);
 		int count = accountService.AddAccount(user);
 		if(count > 0) {
 			mvShare.addObject("status", "Đăng ký thành công");
 		}else {
 			mvShare.addObject("status", "Đăng ký thất bại");
 		}
+		
 		mvShare.setViewName("user/account/register");
 		return mvShare;
 	}
@@ -50,5 +55,17 @@ public class UserController extends BaseController{
 	public String Login(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("LoginInfo");
 		return "redirect:"+request.getHeader("Referer");
+	}
+	
+
+	Users ConvertCharsets(Users user) {
+		// phan ten
+		byte[] bytes = user.getAddress().getBytes(StandardCharsets.ISO_8859_1);
+		user.setAddress(new String(bytes, StandardCharsets.UTF_8));
+	
+		bytes = user.getDisplay_name().getBytes(StandardCharsets.ISO_8859_1);
+		user.setDisplay_name(new String(bytes, StandardCharsets.UTF_8));
+		// phan title
+		return user;
 	}
 }

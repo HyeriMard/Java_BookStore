@@ -1,5 +1,6 @@
 package WebShop.Controller.User;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import WebShop.Dto.CartDto;
 import WebShop.Enity.Bills;
+import WebShop.Enity.Categorys;
 import WebShop.Enity.Users;
 import WebShop.Service.User.BillServiceImpl;
 import WebShop.Service.User.CartServiceImpl;
@@ -94,7 +96,9 @@ public class CartController extends BaseController {
 	}
 	// thanh toán đơn hàng 
 	@RequestMapping(value = "checkout", method = RequestMethod.POST)
-	public String CheckoutBill(HttpServletRequest request, HttpSession session, @ModelAttribute("bills") Bills bill) {
+	public String CheckoutBill(HttpServletRequest request, HttpSession session, @ModelAttribute("bills") Bills bill)
+	{
+		bill = ConvertCharsets(bill);
 		bill.setQuanty((Integer) session.getAttribute("TotalQuantyCart"));
 		bill.setTotal((Double) session.getAttribute("TotalPriceCart"));
 		if (billService.AddBill(bill) > 0) {
@@ -103,5 +107,16 @@ public class CartController extends BaseController {
 		}
 		session.removeAttribute("Cart");
 		return "redirect:gio-hang";
+	}
+	
+	
+	
+	Bills ConvertCharsets(Bills bill) {
+		// phan ten
+		byte[] bytes = bill.getNote().getBytes(StandardCharsets.ISO_8859_1);
+		bill.setNote(new String(bytes, StandardCharsets.UTF_8));
+	
+		// phan title
+		return bill;
 	}
 }
