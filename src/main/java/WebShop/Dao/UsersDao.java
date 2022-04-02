@@ -1,7 +1,12 @@
 package WebShop.Dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import WebShop.Enity.Categorys;
+import WebShop.Enity.MapperCategorys;
 import WebShop.Enity.MapperUsers;
 import WebShop.Enity.Users;
 
@@ -42,4 +47,20 @@ public class UsersDao extends BaseDao {
 		}
 	
 	};
+	
+	public List<Users> GetUsersAdmin() {
+		try {
+			String sql = "SELECT * FROM users WHERE `roleID` = 2";
+			List<Users> list = new ArrayList<Users>();
+					
+			list = jdbcTemplate.query(sql, new MapperUsers());
+		
+			return list;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	
+	};
+	
 }
