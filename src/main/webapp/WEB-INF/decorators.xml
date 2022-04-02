@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<decorators defaultdir="/WEB-INF/views/layouts">
+<decorators defaultdir="/WEB-INF/views/layouts"> <!-- điều_hướng_đường_dẫn-->
+	<!-- điều_hướng_url_dẫn_theo_file_user.jsp-->
 	<decorator name="user" page="user.jsp">
 		<pattern>/*</pattern>
 	</decorator>
+	<!-- điều_hướng_url_dẫn_theo_file admin.jsp-->
 	<decorator name="admin" page="admin.jsp">
 		<pattern>/admin/*</pattern>
 	</decorator>

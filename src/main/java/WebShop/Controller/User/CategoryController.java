@@ -16,7 +16,7 @@ public class CategoryController extends BaseController {
 	private CategoryServiceImpl categoryService;
 	@Autowired
 	private PaginatesServiceImpl paginatesService;
-
+	// đối số 9 sản phẩm
 	private int totalProductsPage = 9;
 
 	@RequestMapping(value = "/san-pham/{id}")
@@ -26,7 +26,7 @@ public class CategoryController extends BaseController {
 		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
 		mvShare.addObject("categoryid", id);
 		mvShare.addObject("paginateInfo", paginateInfo);
-		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), 0 , paginateInfo.getEnd()));
+		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart() , totalProductsPage));
 		return mvShare;
 	}
 
@@ -37,7 +37,7 @@ public class CategoryController extends BaseController {
 		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, Integer.parseInt(currentPage));
 		mvShare.addObject("categoryid", id);
 		mvShare.addObject("paginateInfo", paginateInfo);
-		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), 0, paginateInfo.getEnd()));
+		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart(), totalProductsPage));
 		return mvShare;
 	}
 }

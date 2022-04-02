@@ -14,7 +14,7 @@ public class HomeController extends BaseController{
 		mvShare.addObject("products", _homeService.GetDataProducts());
 		mvShare.addObject("new_product", _homeService.GetNewProducts());
 		mvShare.addObject("highlight", _homeService.GetHighLightProducts());
-		mvShare.addObject("threeproduct", _homeService.GetDataThreeProduct());
+		mvShare.addObject("fourproduct", _homeService.GetFourProduct());
 		mvShare.setViewName("user/index");
 		return mvShare;
 	}

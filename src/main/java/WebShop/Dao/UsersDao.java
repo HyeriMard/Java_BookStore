@@ -7,6 +7,7 @@ import WebShop.Enity.Users;
 
 @Repository
 public class UsersDao extends BaseDao {
+	// câu lệnh thêm tài khoản
 	public int AddAccount(Users user) {
 		StringBuffer sql = new StringBuffer();
 		sql.append("INSERT INTO `users` ");
@@ -16,13 +17,13 @@ public class UsersDao extends BaseDao {
 		sql.append("     '" + user.getUser() + "', ");
 		sql.append("     '" + user.getPassword() + "', ");
 		sql.append("     '" + user.getDisplay_name() + "', ");
-		sql.append("     '" + user.getAddress() + "' ");
+		sql.append("     '" + user.getAddress() + "', ");
 		sql.append("     '" + 2 + "' ");
 		sql.append(")");
 		int insert = jdbcTemplate.update(sql.toString());
 		return insert;
 	};
-
+	// thực thi câu lệnh thêm tài khoản
 	public Users GetUserByAcc(Users user) {
 		String sql = "SELECT * FROM users WHERE user = '" + user.getUser() + "'";
 		Users result = jdbcTemplate.queryForObject(sql, new MapperUsers());

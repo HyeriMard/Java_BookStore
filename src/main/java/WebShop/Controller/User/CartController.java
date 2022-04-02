@@ -26,7 +26,7 @@ public class CartController extends BaseController {
 	private CartServiceImpl cartService = new CartServiceImpl();
 	@Autowired
 	private BillServiceImpl billService = new BillServiceImpl();
-
+	
 	@RequestMapping(value = "/gio-hang")
 	public ModelAndView Index() {
 		mvShare.addObject("slides", _homeService.GetDataSlide());
@@ -37,7 +37,7 @@ public class CartController extends BaseController {
 		mvShare.setViewName("user/cart/list_cart");
 		return mvShare;
 	}
-
+	// thêm giỏ hàng
 	@RequestMapping(value = "AddCart/{id}")
 	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable long id) {
 		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
@@ -51,7 +51,7 @@ public class CartController extends BaseController {
 //		return "redirect:/chi-tiet-san-pham/" + id;
 		return "redirect:" + request.getHeader("Referer");
 	}
-
+	// edit giỏ hàng
 	@RequestMapping(value = "gio-hang/EditCart/{id}/{quanty}")
 	public String EditCart(HttpServletRequest request, HttpSession session, @PathVariable long id,
 			@PathVariable int quanty) {
@@ -65,7 +65,7 @@ public class CartController extends BaseController {
 		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
-
+	// delete giỏ hàng
 	@RequestMapping(value = "DeleteCart/{id}")
 	public String DeleteCart(HttpServletRequest request, HttpSession session, @PathVariable long id) {
 		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
@@ -78,7 +78,7 @@ public class CartController extends BaseController {
 		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
-
+	// xuất thông tin vào trang thanh toán 
 	@RequestMapping(value = "checkout", method = RequestMethod.GET)
 	public ModelAndView Checkout(HttpServletRequest request, HttpSession session) {
 		mvShare.setViewName("user/bills/checkout");
@@ -92,7 +92,7 @@ public class CartController extends BaseController {
 		mvShare.addObject("bills", bills);
 		return mvShare;
 	}
-
+	// thanh toán đơn hàng 
 	@RequestMapping(value = "checkout", method = RequestMethod.POST)
 	public String CheckoutBill(HttpServletRequest request, HttpSession session, @ModelAttribute("bills") Bills bill) {
 		bill.setQuanty((Integer) session.getAttribute("TotalQuantyCart"));

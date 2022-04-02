@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/layouts/taglib.jsp"%>
 <head>
-<title>Danh sách</title>
+<title>Danh sách tất cả sản phẩm</title>
 <style>
 .imagi {
 	object-fit: fill;
@@ -34,6 +34,10 @@
 	border: 1px solid #4CAF50;
 }
 
+.h3{
+	justify-content: center;
+}
+
 .pagination a:hover:not(.active) {
 	background-color: #ddd;
 }
@@ -41,6 +45,7 @@
 </head>
 <body>
 	<div class="well well-small">
+	<h3>Danh sách tất cả sản phẩm</h3>
 		<div class="row">
 			<span style="margin-left: 25px">Lọc danh sách sản phẩm</span> <select
 				class="pull-right">
@@ -90,10 +95,10 @@
 	<div class="pagination">
 		<c:forEach var="item" begin="1" end="${ paginateInfo.totalPage }" varStatus="loop">
 			<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-				<a href="<c:url value="/san-pham/${ categoryid }/${ loop.index }"/>" class="active">${ loop.index }</a>
+				<a href="<c:url value="/tat-ca-san-pham/${ loop.index }"/>" class="active">${ loop.index }</a>
 			</c:if>
 			<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-				<a href="<c:url value="/san-pham/${ categoryid }/${ loop.index }"/>">${ loop.index }</a>
+				<a href="<c:url value="/tat-ca-san-pham/${ loop.index }"/>">${ loop.index }</a>
 			</c:if>
 		</c:forEach>
 	</div>

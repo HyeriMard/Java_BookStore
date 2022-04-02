@@ -19,6 +19,22 @@
 .thumbnail:hover {
 	box-shadow: 10px 10px 5px grey;
 }
+
+.span9 {
+	border-radius: 50px 20px;
+}
+
+.imgSlide {
+	border-radius: 50px 20px;
+}
+
+.np {
+	border-radius: 50px 20px;
+}
+
+.sld {
+	border-radius: 50px 20px;
+}
 </style>
 </head>
 
@@ -45,31 +61,25 @@ Body Section
 				</ul>
 			</div>
 
-			<div class="well well-small alert alert-warning cntr">
-				<h2>50% Discount</h2>
-				<p>
-					only valid for online order. <br> <br> <a
-						class="defaultBtn" href="#">Click here </a>
-				</p>
-			</div>
 			<a class="shopBtn btn-block" href="#">Upcoming products <br>
-				<small>Click to view</small></a> <br> <br>
+				<small>Click to view</small></a> <br>
 			<h3>Có thể bạn quan tâm</h3>
-			<c:if test="${ threeproduct.size() > 0 }">
+			<c:if test="${ fourproduct.size() > 0 }">
 				<ul class="nav nav-list promowrapper">
-					<c:forEach var="item" items="${ threeproduct }" varStatus="loop">
+					<c:forEach var="item" items="${ fourproduct }" varStatus="loop">
 						<li>
 							<div class="thumbnail">
 								<a class="zoomTool"
 									href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
-									title="add to cart"><span class="icon-search"></span> Xem nhanh</a> <img
+									title="add to cart"><span class="icon-search"></span> Xem
+									nhanh</a> <img
 									src="<c:url value="/assets/user/img/products/${ item.picture }"/>"
 									alt="bootstrap template">
 								<div class="caption">
 									<h4>
 										<a class="defaultBtn"
-											href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"> Xem </a>
-										<span class="pull-right"><fmt:formatNumber
+											href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>">
+											Xem </a> <span class="pull-right"><fmt:formatNumber
 												type="number" groupingUsed="true" value="${ item.price }" />₫</span>
 									</h4>
 								</div>
@@ -80,9 +90,9 @@ Body Section
 			</c:if>
 		</div>
 		<div class="span9">
-			<div class="well np" style="border-radius: 10px">
+			<div class="well np">
 				<div id="myCarousel" class="carousel slide homCar">
-					<div class="carousel-inner">
+					<div class="carousel-inner sld">
 						<c:forEach var="item" items="${ slides }" varStatus="index">
 							<c:if test="${index.first }">
 								<div class="item active">
@@ -90,7 +100,7 @@ Body Section
 							<c:if test="${not index.first }">
 								<div class="item">
 							</c:if>
-							<img style="width: 100%"
+							<img class="imgSlide" style="width: 100%"
 								src="<c:url value="/assets/user/img/slide/${ item.img }"/>"
 								alt="456">
 							<div class="carousel-caption">
@@ -103,8 +113,9 @@ Body Section
 					</c:forEach>
 				</div>
 				<a class="left carousel-control" href="#myCarousel"
-					data-slide="prev" style="border-radius: 15px">&lsaquo;</a> <a class="right carousel-control"
-					href="#myCarousel" data-slide="next" style="border-radius: 15px">&rsaquo;</a>
+					data-slide="prev" style="border-radius: 15px">&lsaquo;</a> <a
+					class="right carousel-control" href="#myCarousel" data-slide="next"
+					style="border-radius: 15px">&rsaquo;</a>
 			</div>
 		</div>
 
@@ -205,7 +216,8 @@ New Products
 		</div>
 		<hr>
 		<div class="well well-small" style="border-radius: 10px">
-			<a class="btn btn-mini pull-right" href="#"> Xem thêm <span
+			<a class="btn btn-mini pull-right"
+				href="<c:url value="/tat-ca-san-pham"/>"> Xem thêm <span
 				class="icon-plus"></span></a> Tất cả sản phẩm
 		</div>
 	</div>

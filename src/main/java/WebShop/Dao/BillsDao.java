@@ -24,7 +24,7 @@ public class BillsDao extends BaseDao {
 		int insert = jdbcTemplate.update(sql.toString());
 		return insert;
 	}
-
+	
 	public long GetIDLastBills() {
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT MAX(id) FROM bills;");

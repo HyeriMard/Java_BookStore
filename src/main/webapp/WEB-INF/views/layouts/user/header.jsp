@@ -5,8 +5,8 @@
 <header id="header">
 	<div class="row">
 		<div class="span12" style="text-align: center">
-				<a class="logo" href=""><span></span> <img
-					src="<c:url value="/assets/user/img/logoa.png"/>"
+				<a class="logo" href="trang-chu"><span></span> <img
+					src="<c:url value="/assets/user/img/n5h1.png"/>"
 					alt="bootstrap sexy shop"> </a>
 		</div>
 	</div>

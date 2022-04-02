@@ -25,4 +25,14 @@ public class ProductServiceImpl implements IProductService{
 		return productsDao.GetAllProductsByID(id);
 	}
 
+	@Override
+	public List<ProductDto> GetAllProduct() {
+		return productsDao.GetAllProduct();
+	}
+
+	@Override
+	public List<ProductDto> GetAllProductsPaginate(int start, int totalPage) {
+		return productsDao.GetAllProductsPaginate(start, totalPage);
+	}
+
 }

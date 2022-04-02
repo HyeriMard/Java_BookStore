@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <section class="our_client">
 	<hr class="soften" />
 	<div class="row">
@@ -51,12 +51,13 @@ Footer
 			<a href="#">SUPPLIERS</a> <br />
 		</div>
 		<div class="span6">
-			<h5>The standard chunk of Lorem</h5>
-			The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-			below for those interested. Sections 1.10.32 and 1.10.33 from "de
-			Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-			exact original form, accompanied by English versions from the 1914
-			translation by H. Rackham.
+			<h5> Thông tin </h5>
+			Trụ sở: 475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM<br>
+Cơ sở 475B: 475B Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM<br>
+Cơ sở Ung Văn Khiêm: 31/36 Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM<br>
+Viện Công nghệ cao HUTECH: Khu Công nghệ cao TP.HCM (SHTP), P.Long Thạnh Mỹ, TP.Thủ Đức, TP.HCM<br>
+TT ĐT nhân lực chất lượng cao: Khu Công nghệ cao TP.HCM (SHTP), Xa lộ Hà Nội, P.Hiệp Phú, TP.Thủ Đức, TP.HCM<br>
+ĐT: (028) 5445 7777 - Fax: (028) 5445 4444 - Email: hutech@hutech.edu.vn
 		</div>
 	</div>
 </footer>

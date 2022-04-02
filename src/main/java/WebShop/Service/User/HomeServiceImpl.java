@@ -49,8 +49,8 @@ public class HomeServiceImpl implements IHomeService{
 		List<ProductDto> listProduct = productsDao.GetHighLightProducts();
 		return listProduct;
 	}
-	public List<ProductDto> GetDataThreeProduct() {
-		List<ProductDto> listProduct = productsDao.GetDataThreeProduct();
+	public List<ProductDto> GetFourProduct() {
+		List<ProductDto> listProduct = productsDao.GetFourProduct();
 		return listProduct;
 	}
 }
