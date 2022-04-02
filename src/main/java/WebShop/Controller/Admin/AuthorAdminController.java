@@ -22,8 +22,13 @@ public class AuthorAdminController extends BaseAdminController {
 	@RequestMapping(value = "/login")
 	public ModelAndView Index() {
 
-		mvShare.addObject("userLogin", new Users());
-		mvShare.setViewName("redirect:/login/");
+		if (isLogin()==false) {	
+			mvShare.clear();
+			mvShare.addObject("userLogin", new Users());
+			mvShare.setViewName("redirect:/login/");
+			
+		}
+		
 		return mvShare;
 	}
 
@@ -40,8 +45,12 @@ public class AuthorAdminController extends BaseAdminController {
 	@RequestMapping(value = "/login/", method = RequestMethod.GET)
 	public ModelAndView Login() {
 
-		mvShare.addObject("userLogin", new Users());
-		mvShare.setViewName("admin/login");
+		if (isLogin()==false) {	
+			mvShare.clear();
+			mvShare.addObject("userLogin", new Users());
+			mvShare.setViewName("admin/login");
+		}
+		
 		return mvShare;
 	}
 

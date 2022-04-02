@@ -72,7 +72,7 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/WebShop/admin/khach-hang" class="nav-link">
                                     <i class="far fa-circle nav-icon text-success"></i>
                                     <p>Khách hàng</p>
                                 </a>

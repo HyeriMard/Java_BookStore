@@ -1,10 +1,13 @@
 package WebShop.Service.User;
 
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import WebShop.Dao.UsersDao;
+import WebShop.Enity.Categorys;
 import WebShop.Enity.Users;
 
 @Service
@@ -43,5 +46,9 @@ public class AccountServiceImpl implements IAccountService {
 		return null;
 	
 		
+	}
+	@Override
+	public List<Users> GetUsersAdmin() {
+		return usersDao.GetUsersAdmin();
 	}
 }
