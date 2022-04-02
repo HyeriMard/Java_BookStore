@@ -13,7 +13,7 @@ public class MapperBillsDetail implements RowMapper<BillsDetail>{
 		bills.setId_product(rs.getInt("id_product"));
 		bills.setQuanty(rs.getInt("quanty"));
 		bills.setTotal(rs.getDouble("total"));
-		bills.setId_bills(rs.getInt("id_bills "));
+		bills.setId_bills(rs.getInt("id_bills"));
 		return bills;
 	}
 }
