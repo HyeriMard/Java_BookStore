@@ -174,8 +174,8 @@ public class ProductAdminController extends BaseAdminController {
 		mvShare.clear();
 		// chuyen charset sang UTF-8
 		ProductDto pro = ConvertCharsets(editPro);
-		// gán id cho pro này
-		pro.setId(editPro.getId());
+		System.out.print(pro.getCateID());
+		
 		// lấy id để tìm pro trong database
 		ProductDto pro_temp = _productService.GetProductByID(editPro.getId()).get(0);
 		// set img cũ tạm

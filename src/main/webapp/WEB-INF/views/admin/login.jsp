@@ -15,7 +15,7 @@
             <h5>${status}</h5>
             <div class="row">
                 <div class="col-4">
-                    Hình
+                    <img src="<c:url value="/assets/admin/logo.png"/>"  class="img-fluid">
                 </div>
                 <div class="col-8 ml-4">
                     <div class="form-group">
