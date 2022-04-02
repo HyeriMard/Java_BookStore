@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="span12" style="text-align: center">
 				<a class="logo" href="trang-chu"><span></span> <img
-					src="<c:url value="/assets/user/img/n5h1.png"/>"
+					src="<c:url value="/WebShop/assets/user/img/n5h1.png"/>"
 					alt="bootstrap sexy shop"> </a>
 		</div>
 	</div>

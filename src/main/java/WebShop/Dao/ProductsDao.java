@@ -79,7 +79,7 @@ public class ProductsDao extends BaseDao {
 	// thực thi lấy tất cả sản phẩm random tối đa 4 sản phẩm
 	public List<ProductDto> GetFourProduct() {
 		String sql = "SELECT * FROM `products` ORDER BY RAND() LIMIT 4";
-s		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm theo id cate

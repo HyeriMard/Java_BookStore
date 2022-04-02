@@ -33,6 +33,7 @@ public class ProductServiceImpl implements IProductService {
 	@Override
 	public List<ProductDto> GetAllProductsPaginate(int start, int totalPage) {
 		return productsDao.GetAllProductsPaginate(start, totalPage);
+	}
 	// -=-=-=-=-=admin-=-=--=-=-=
 	@Override
 	public List<ProductDto> GetProducts() {
