@@ -22,6 +22,7 @@ public interface ICategoryService {
 	public int EditCategory(Categorys editCate);
 	
 	
-	
 	public List<Categorys> GetDataCategorys();
+	public List<ProductDto> Search(String keyword);
+	public List<ProductDto> GetProductsPaginateKeyWord(int start, int totalPage, String keyword);
 }

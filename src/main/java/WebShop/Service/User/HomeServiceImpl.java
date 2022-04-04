@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import WebShop.Dao.BaseDao;
 import WebShop.Dao.BillsDao;
 import WebShop.Dao.CategorysDao;
 import WebShop.Dao.MenusDao;
@@ -74,4 +75,5 @@ public class HomeServiceImpl implements IHomeService{
 	public int EditCategory(Categorys editCate) {
 		return 	categorysDao.EditCategory(editCate);
 	}
+
 }

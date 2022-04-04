@@ -18,4 +18,5 @@ public interface IProductService {
 	public List<ProductDto> GetProductByID(long id);
 	public int DeleteProduct(long id);
 	public int EditProduct(ProductDto pro) ;
+
 }

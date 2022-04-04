@@ -47,7 +47,7 @@
 </head>
 <body>
 	<div class="well well-small">
-		<h3>Danh sách tất cả sản phẩm</h3>
+		<h3>Kết quả tìm kiếm với từ khóa  ' ${ keyword } '</h3>
 		<div class="row">
 			<span style="margin-left: 25px">Lọc danh sách sản phẩm</span> <select
 				class="pull-right">
@@ -55,7 +55,7 @@
 				<option>Cao thấp</option>
 			</select>
 		</div>
-		<c:if test="${ productsPaginate.size() > 0 }">
+		<c:if test="${ list.size() > 0 }">
 			<div class="row-fluid">
 				<ul class="thumbnails">
 					<c:forEach var="item" items="${ productsPaginate }"
@@ -102,21 +102,21 @@
 	</div>
 	<div class="pagination">
 		<c:if test="${ paginateInfo.currentPage > 1 }">
-			<a href="<c:url value="/tat-ca-san-pham/1"/>">&laquo;</a>
+			<a href="<c:url value="/search/1"/>">&laquo;</a>
 		</c:if>
 		<c:forEach var="item" begin="1" end="${ paginateInfo.totalPage }"
 			varStatus="loop">
 			<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-				<a href="<c:url value="/tat-ca-san-pham/${ loop.index }"/>"
+				<a href="<c:url value="/search/${ loop.index }"/>"
 					class="active">${ loop.index }</a>
 			</c:if>
 			<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-				<a href="<c:url value="/tat-ca-san-pham/${ loop.index }"/>">${ loop.index }</a>
+				<a href="<c:url value="/search/${ loop.index }"/>">${ loop.index }</a>
 			</c:if>
 		</c:forEach>
 		<c:if test="${ paginateInfo.currentPage < paginateInfo.totalPage }">
 			<a
-				href="<c:url value="/tat-ca-san-pham/${ paginateInfo.totalPage }"/>">&raquo;</a>
+				href="<c:url value="/search/${ paginateInfo.totalPage }"/>">&raquo;</a>
 		</c:if>
 	</div>
 </body>

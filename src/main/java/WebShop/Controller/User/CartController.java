@@ -115,7 +115,12 @@ public class CartController extends BaseController {
 		// phan ten
 		byte[] bytes = bill.getNote().getBytes(StandardCharsets.ISO_8859_1);
 		bill.setNote(new String(bytes, StandardCharsets.UTF_8));
-	
+		
+		bytes = bill.getDisplay_name().getBytes(StandardCharsets.ISO_8859_1);
+		bill.setDisplay_name(new String(bytes, StandardCharsets.UTF_8));
+		
+		bytes = bill.getAddress().getBytes(StandardCharsets.ISO_8859_1);
+		bill.setAddress(new String(bytes, StandardCharsets.UTF_8));
 		// phan title
 		return bill;
 	}

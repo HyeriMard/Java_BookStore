@@ -134,6 +134,33 @@ public class ProductsDao extends BaseDao {
 		ProductDto listProduct = jdbcTemplate.queryForObject(sql, new ProductsDtoMapper());
 		return listProduct;
 	}
+	// thực thi tìm kiếm sản phẩm
+	public List<ProductDto> Search(String keyword) {
+		List<ProductDto> list = new ArrayList<ProductDto>();
+		String sql = "SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')";
+		list = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return list;
+	}
+	
+	// sdfasfas
+		private String SqlGetAllProductPaginateKeyWord(int start, int totalPage, String keyword) {
+			StringBuffer abc = new StringBuffer();
+			abc.append("SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')");
+			abc.append(" LIMIT " + start + ", " + totalPage);
+			return abc.toString();
+		}
+	
+	// agdfgd
+		public List<ProductDto> GetProductsPaginateKeyWord( int start, int totalPage, String keyword) {
+			String sql1 = "SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')";
+			List<ProductDto> listProduct = jdbcTemplate.query(sql1, new ProductsDtoMapper());
+			List<ProductDto> listProducts = new ArrayList<ProductDto>();
+			if (listProduct.size() > 0) {
+				String sql = SqlGetAllProductPaginateKeyWord(start, totalPage, keyword);
+				listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+			}
+			return listProducts;
+		}
 
 	// -=-=-=-==-=-=-=-=-=-=-=
 	// Phầm admin

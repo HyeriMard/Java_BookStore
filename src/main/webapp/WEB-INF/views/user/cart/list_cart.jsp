@@ -27,7 +27,6 @@
 							<th>Số lượng</th>
 							<th>Chỉnh sửa</th>
 							<th>Xóa</th>
-							<th>Tổng tiền</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,13 +50,16 @@
 									class="btn btn-mini btn-danger" type="button"> <span
 										class="icon-remove"></span>
 								</a></td>
-								<td ><fmt:formatNumber type="number" groupingUsed="true"
-										value="${ TotalPriceCart }" /> ₫</td>
+								
 							</tr>
 							
 						</c:forEach>
 					</tbody>
 				</table>
+				<div class="text-right">
+				<strong><span>Tổng tiền :</span>
+				<fmt:formatNumber type="number" groupingUsed="true"
+										value="${ TotalPriceCart }" /> ₫</strong></div>
 				<br /> <a href="products.html" class="shopBtn btn-large"><span
 					class="icon-arrow-left"></span> Tiếp tục mua sắm </a> <a
 					href="<c:url value="checkout"/>" class="shopBtn btn-large pull-right"> Thanh

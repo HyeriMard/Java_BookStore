@@ -1,14 +1,22 @@
 package WebShop.Controller.User;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import WebShop.Dto.PaginatesDto;
+import WebShop.Dto.ProductDto;
 import WebShop.Service.User.CategoryServiceImpl;
 import WebShop.Service.User.PaginatesServiceImpl;
+import WebShop.Service.User.ProductServiceImpl;
 
 @Controller
 public class CategoryController extends BaseController {
@@ -16,6 +24,9 @@ public class CategoryController extends BaseController {
 	private CategoryServiceImpl categoryService;
 	@Autowired
 	private PaginatesServiceImpl paginatesService;
+	@Autowired
+	private ProductServiceImpl productService;
+	
 	// đối số 9 sản phẩm
 	private int totalProductsPage = 9;
 
@@ -26,7 +37,8 @@ public class CategoryController extends BaseController {
 		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
 		mvShare.addObject("categoryid", id);
 		mvShare.addObject("paginateInfo", paginateInfo);
-		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart() , totalProductsPage));
+		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id),
+				paginateInfo.getStart(), totalProductsPage));
 		return mvShare;
 	}
 
@@ -34,10 +46,12 @@ public class CategoryController extends BaseController {
 	public ModelAndView Product(@PathVariable String id, @PathVariable String currentPage) {
 		mvShare.setViewName("user/products/category");
 		int totalData = categoryService.GetAllProductsByID(Integer.parseInt(id)).size();
-		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, Integer.parseInt(currentPage));
+		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage,
+				Integer.parseInt(currentPage));
 		mvShare.addObject("categoryid", id);
 		mvShare.addObject("paginateInfo", paginateInfo);
-		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart(), totalProductsPage));
+		mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id),
+				paginateInfo.getStart(), totalProductsPage));
 		return mvShare;
 	}
 }

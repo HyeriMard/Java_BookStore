@@ -9,9 +9,11 @@
 	object-fit: cover;
 	height: 300px;
 }
-.thumbnail:hover{
-		box-shadow: 10px 10px 5px grey;
-	}
+
+.thumbnail:hover {
+	box-shadow: 10px 10px 5px grey;
+}
+
 .pagination {
 	display: flex;
 	justify-content: center;
@@ -55,8 +57,14 @@
 						varStatus="loop">
 						<li class="span4">
 							<div class="thumbnail">
-								<a href="product_details.html" class="overlay"></a> <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> Xem chi tiết</a> 
-								<a href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"> <img class="imagi" src="<c:url value="/assets/user/img/products/${ item.picture }"/>" alt=""></a>
+								<a href="product_details.html" class="overlay"></a> <a
+									class="zoomTool" href="product_details.html"
+									title="add to cart"><span class="icon-search"></span> Xem
+									chi tiết</a> <a
+									href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"> <img
+									class="imagi"
+									src="<c:url value="/assets/user/img/products/${ item.picture }"/>"
+									alt=""></a>
 								<div class="caption cntr">
 									<p>${ item.name }</p>
 									<p>
@@ -88,13 +96,21 @@
 		</c:if>
 	</div>
 	<div class="pagination">
-		<c:forEach var="item" begin="1" end="${ paginateInfo.totalPage }" varStatus="loop">
+		<c:if test="${ paginateInfo.currentPage > 1 }">
+			<a href="<c:url value="/san-pham/${ categoryid }/1"/>">&laquo;</a>
+		</c:if>
+		<c:forEach var="item" begin="1" end="${ paginateInfo.totalPage }"
+			varStatus="loop">
 			<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-				<a href="<c:url value="/san-pham/${ categoryid }/${ loop.index }"/>" class="active">${ loop.index }</a>
+				<a href="<c:url value="/san-pham/${ categoryid }/${ loop.index }"/>"
+					class="active">${ loop.index }</a>
 			</c:if>
 			<c:if test="${ (loop.index) != paginateInfo.currentPage }">
 				<a href="<c:url value="/san-pham/${ categoryid }/${ loop.index }"/>">${ loop.index }</a>
 			</c:if>
 		</c:forEach>
+		<c:if test="${ paginateInfo.currentPage < paginateInfo.totalPage }">
+			<a href="<c:url value="/san-pham/${ categoryid }/${ paginateInfo.totalPage }"/>">&raquo;</a>
+		</c:if>
 	</div>
 </body>

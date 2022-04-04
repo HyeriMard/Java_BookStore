@@ -23,9 +23,6 @@
 						<th class="text-center" style="width: 40px">Email</th>
 						<th class="text-center" >Tên người dùng</th>
 						<th class="text-center" >Địa chỉ</th>
-
-
-						<th class="text-center" width="200px">Chi tiết</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,13 +35,6 @@
 							<td class="text-center">${item.display_name}</td>
 							<!--tổng tiền-->
 							<td class="text-center">${item.address}</td>
-							
-							<!--Chức năng-->
-							<td class="text-center">
-								 <a class="btn btn-info btn-sm" href="chi-tiet-don/${item.id}" role="button"> <i
-										class="fas fa-eye"></i>
-								</a>
-							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
