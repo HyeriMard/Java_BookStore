@@ -11,7 +11,7 @@
 	<!-- package chính bắt đầu bằng tên webshop -->
 	<context:component-scan base-package="WebShop"></context:component-scan>
 	<!-- path_to_all-file_jsp -->
-	<!-- InternalResourceViewResolver mở rộng UrlBasedViewResolver: ánh xạ trực tiếp URL tới tên logic của view, sử dụng trong việc chỉ ra nguồn của view -->
+	<!-- InternalResourceViewResolver mở rộng UrlBasedViewResolver: ánh xạ trực tiếp URL tới tên logic của view, chỉ ra nguồn của view -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>

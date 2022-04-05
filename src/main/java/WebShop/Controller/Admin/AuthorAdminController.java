@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import WebShop.Enity.Users;
+import WebShop.Dto.Users;
 import WebShop.Service.User.AccountServiceImpl;
 
 @Controller

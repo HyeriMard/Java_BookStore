@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import WebShop.Dto.Menus;
 import WebShop.Enity.MapperMenus;
-import WebShop.Enity.Menus;
 
 @Repository
 public class MenusDao extends BaseDao{

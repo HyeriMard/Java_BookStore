@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import WebShop.Dao.BillsDao;
-import WebShop.Enity.BillsDetail;
+import WebShop.Dto.BillsDetail;
 @Service
 public class BillDetailServiceImpl implements IBillDetailService{
 	

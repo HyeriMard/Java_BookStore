@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import WebShop.Dao.CategorysDao;
 import WebShop.Dao.ProductsDao;
-import WebShop.Dto.ProductDto;
-import WebShop.Enity.Categorys;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Product;
 
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -19,23 +19,23 @@ public class CategoryServiceImpl implements ICategoryService {
 	private CategorysDao categorysDao;
 
 	@Override
-	public List<ProductDto> Search(String keyword) {
+	public List<Product> Search(String keyword) {
 		return productsDao.Search(keyword);
 	}
 	
 	@Override
-	public List<ProductDto> GetProductsPaginateKeyWord(int start, int totalPage, String keyword) {
+	public List<Product> GetProductsPaginateKeyWord(int start, int totalPage, String keyword) {
 		return productsDao.GetProductsPaginateKeyWord(start, totalPage, keyword);
 	}
 
 
 	@Override
-	public List<ProductDto> GetAllProductsByID(int id) {
+	public List<Product> GetAllProductsByID(int id) {
 		return productsDao.GetAllProductsByID(id);
 	}
 
 	@Override
-	public List<ProductDto> GetDataProductsPaginate(int id, int start, int totalPage) {
+	public List<Product> GetDataProductsPaginate(int id, int start, int totalPage) {
 		return productsDao.GetDataProductsPaginate(id, start, totalPage);
 	}
 

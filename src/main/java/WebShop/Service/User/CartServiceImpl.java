@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import WebShop.Dao.CartDao;
-import WebShop.Dto.CartDto;
+import WebShop.Dto.Cart;
 
 @Service
 public class CartServiceImpl implements ICartService {
@@ -15,27 +15,27 @@ public class CartServiceImpl implements ICartService {
 	private CartDao cartDao = new CartDao();
 
 	@Override
-	public HashMap<Long, CartDto> AddCart(long id, HashMap<Long, CartDto> cart) {
+	public HashMap<Long, Cart> AddCart(long id, HashMap<Long, Cart> cart) {
 		return cartDao.AddCart(id, cart);
 	}
 
 	@Override
-	public HashMap<Long, CartDto> EditCart(long id, int quanty, HashMap<Long, CartDto> cart) {
+	public HashMap<Long, Cart> EditCart(long id, int quanty, HashMap<Long, Cart> cart) {
 		return cartDao.EditCart(id, quanty, cart);
 	}
 
 	@Override
-	public HashMap<Long, CartDto> DeleteCart(long id, HashMap<Long, CartDto> cart) {
+	public HashMap<Long, Cart> DeleteCart(long id, HashMap<Long, Cart> cart) {
 		return cartDao.DeleteCart(id, cart);
 	}
 
 	@Override
-	public int TotalQuanty(HashMap<Long, CartDto> cart) {
+	public int TotalQuanty(HashMap<Long, Cart> cart) {
 		return cartDao.TotalQuanty(cart);
 	}
 
 	@Override
-	public double TotalPrice(HashMap<Long, CartDto> cart) {
+	public double TotalPrice(HashMap<Long, Cart> cart) {
 		return cartDao.TotalPrice(cart);
 	}
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import WebShop.Dto.PaginatesDto;
+import WebShop.Dto.Paginates;
 import WebShop.Service.User.PaginatesServiceImpl;
 import WebShop.Service.User.ProductServiceImpl;
 
@@ -33,7 +33,7 @@ public class ProductController extends BaseController {
 	public ModelAndView Product() {
 		mvShare.setViewName("user/products/all_product");
 		int totalData = productService.GetAllProduct().size();
-		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
+		Paginates paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
 		mvShare.addObject("paginateInfo", paginateInfo);
 		mvShare.addObject("productsPaginate", productService.GetAllProductsPaginate(paginateInfo.getStart(), totalProductsPage));
 		return mvShare;
@@ -43,7 +43,7 @@ public class ProductController extends BaseController {
 	public ModelAndView Product(@PathVariable String currentPage) {
 		mvShare.setViewName("user/products/all_product");
 		int totalData = productService.GetAllProduct().size();
-		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, Integer.parseInt(currentPage));
+		Paginates paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, Integer.parseInt(currentPage));
 		mvShare.addObject("paginateInfo", paginateInfo);
 		mvShare.addObject("productsPaginate", productService.GetAllProductsPaginate(paginateInfo.getStart(), totalProductsPage));
 		return mvShare;

@@ -1,4 +1,4 @@
-package WebShop.Enity;
+package WebShop.Dto;
 
 public class BillsDetail {
 	private long id;

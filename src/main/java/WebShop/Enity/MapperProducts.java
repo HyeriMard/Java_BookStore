@@ -1,15 +1,17 @@
-package WebShop.Dto;
+package WebShop.Enity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-public class ProductsDtoMapper implements RowMapper<ProductDto>{
+import WebShop.Dto.Product;
+
+public class MapperProducts implements RowMapper<Product>{
 
 	@Override
-	public ProductDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-		ProductDto product = new ProductDto();
+	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Product product = new Product();
 		product.setId(rs.getLong("id"));
 		product.setCateID(rs.getInt("cateID"));
 		product.setName(rs.getString("name"));

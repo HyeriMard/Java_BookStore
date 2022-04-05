@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import WebShop.Dto.BillsDetail;
+
 public class MapperBillForAdmin implements RowMapper<BillsDetail> {
 	@Override
 	public BillsDetail mapRow(ResultSet rs, int rowNum) throws SQLException {

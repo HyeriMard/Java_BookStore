@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import WebShop.Dto.ProductDto;
-import WebShop.Dto.ProductsDtoMapper;
+import WebShop.Dto.Product;
+import WebShop.Enity.MapperProducts;
 
 @Repository
 public class ProductsDao extends BaseDao {
@@ -59,60 +59,60 @@ public class ProductsDao extends BaseDao {
 		return sql.toString();
 	}
 	// thực thi lấy tất cả sản phẩm mới
-	public List<ProductDto> GetNewProducts() {
+	public List<Product> GetNewProducts() {
 		String sql = SqlProduct(YES, NO);
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm nổi bật
-	public List<ProductDto> GetHighLightProducts() {
+	public List<Product> GetHighLightProducts() {
 		String sql = SqlProduct(NO, YES);
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm random tối đa 6 sản phẩm
-	public List<ProductDto> GetDataProducts() {
+	public List<Product> GetDataProducts() {
 		String sql = "SELECT * FROM products ORDER BY RAND() LIMIT 6";
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm random tối đa 4 sản phẩm
-	public List<ProductDto> GetFourProduct() {
+	public List<Product> GetFourProduct() {
 		String sql = "SELECT * FROM `products` ORDER BY RAND() LIMIT 4";
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm theo id cate
-	public List<ProductDto> GetAllProductsByID(int id) {
+	public List<Product> GetAllProductsByID(int id) {
 		String sql = SqlProductByID(id).toString();
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy tất cả sản phẩm 
-	public List<ProductDto> GetAllProduct() {
+	public List<Product> GetAllProduct() {
 		String sql = SqlString().toString();
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 	// thực thi lấy trang sản phẩm hiện tại theo id cate
-	public List<ProductDto> GetDataProductsPaginate(Integer id, int start, int totalPage) {
+	public List<Product> GetDataProductsPaginate(Integer id, int start, int totalPage) {
 		StringBuffer sqlGetDataByID = SqlProductByID(id);
-		List<ProductDto> listProductsByID = jdbcTemplate.query(sqlGetDataByID.toString(), new ProductsDtoMapper());
-		List<ProductDto> listProducts = new ArrayList<ProductDto>();
+		List<Product> listProductsByID = jdbcTemplate.query(sqlGetDataByID.toString(), new MapperProducts());
+		List<Product> listProducts = new ArrayList<Product>();
 		if (listProductsByID.size() > 0) {
 			String sql = SqlProductPaginate(id, start, totalPage);
-			listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+			listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		}
 		return listProducts;
 	}
 	// thực thi lấy trang sản phẩm hiện tại
-	public List<ProductDto> GetAllProductsPaginate( int start, int totalPage) {
+	public List<Product> GetAllProductsPaginate( int start, int totalPage) {
 		StringBuffer sqlGetData = SqlString();
-		List<ProductDto> listProduct = jdbcTemplate.query(sqlGetData.toString(), new ProductsDtoMapper());
-		List<ProductDto> listProducts = new ArrayList<ProductDto>();
+		List<Product> listProduct = jdbcTemplate.query(sqlGetData.toString(), new MapperProducts());
+		List<Product> listProducts = new ArrayList<Product>();
 		if (listProduct.size() > 0) {
 			String sql = SqlGetAllProductPaginate(start, totalPage);
-			listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+			listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		}
 		return listProducts;
 	}
@@ -123,26 +123,26 @@ public class ProductsDao extends BaseDao {
 		return sql.toString();
 	}
 	// thực thi câu lệnh trả về 1 danh sách sản phẩm theo id
-	public List<ProductDto> GetOneProductsByID(long id) {
+	public List<Product> GetOneProductsByID(long id) {
 		String sql = SqlOneProductByID(id);
-		List<ProductDto> listProduct = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProduct = jdbcTemplate.query(sql, new MapperProducts());
 		return listProduct;
 	}
 	// thực thi câu lệnh lấy 1 sản phẩm theo id
-	public ProductDto FindProductsByID(long id) {
+	public Product FindProductsByID(long id) {
 		String sql = SqlOneProductByID(id);
-		ProductDto listProduct = jdbcTemplate.queryForObject(sql, new ProductsDtoMapper());
+		Product listProduct = jdbcTemplate.queryForObject(sql, new MapperProducts());
 		return listProduct;
 	}
-	// thực thi tìm kiếm sản phẩm
-	public List<ProductDto> Search(String keyword) {
-		List<ProductDto> list = new ArrayList<ProductDto>();
+	// tìm kiếm sản phẩm theo keyword
+	public List<Product> Search(String keyword) {
+		List<Product> list = new ArrayList<Product>();
 		String sql = "SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')";
-		list = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		list = jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
 	
-	// sdfasfas
+	// lấy tất cả theo keyword và giới hạn sản phẩm
 		private String SqlGetAllProductPaginateKeyWord(int start, int totalPage, String keyword) {
 			StringBuffer abc = new StringBuffer();
 			abc.append("SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')");
@@ -150,27 +150,27 @@ public class ProductsDao extends BaseDao {
 			return abc.toString();
 		}
 	
-	// agdfgd
-		public List<ProductDto> GetProductsPaginateKeyWord( int start, int totalPage, String keyword) {
+	// lấy phân trang theo keyword
+		public List<Product> GetProductsPaginateKeyWord( int start, int totalPage, String keyword) {
 			String sql1 = "SELECT * FROM `products` WHERE MATCH (name,title) AGAINST ('"+ keyword +"')";
-			List<ProductDto> listProduct = jdbcTemplate.query(sql1, new ProductsDtoMapper());
-			List<ProductDto> listProducts = new ArrayList<ProductDto>();
+			List<Product> listProduct = jdbcTemplate.query(sql1, new MapperProducts());
+			List<Product> listProducts = new ArrayList<Product>();
 			if (listProduct.size() > 0) {
 				String sql = SqlGetAllProductPaginateKeyWord(start, totalPage, keyword);
-				listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+				listProducts = jdbcTemplate.query(sql, new MapperProducts());
 			}
 			return listProducts;
 		}
 
 	// -=-=-=-==-=-=-=-=-=-=-=
 	// Phầm admin
-	public List<ProductDto> GetProducts() {
+	public List<Product> GetProducts() {
 		String sql = "SELECT * FROM `products`";
-		List<ProductDto> listProducts = jdbcTemplate.query(sql, new ProductsDtoMapper());
+		List<Product> listProducts = jdbcTemplate.query(sql, new MapperProducts());
 		return listProducts;
 	}
 
-	public int CreateProdut(ProductDto newPro) {
+	public int CreateProdut(Product newPro) {
 
 		try {
 			StringBuffer sql = new StringBuffer();
@@ -214,7 +214,7 @@ public class ProductsDao extends BaseDao {
 
 	}
 
-	public int EditProdut(ProductDto pro) {
+	public int EditProdut(Product pro) {
 		 try {
 
 		// lấy ngay hien tai

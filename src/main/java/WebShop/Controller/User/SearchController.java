@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import WebShop.Dto.PaginatesDto;
-import WebShop.Dto.ProductDto;
+import WebShop.Dto.Paginates;
+import WebShop.Dto.Product;
 import WebShop.Service.User.CategoryServiceImpl;
 import WebShop.Service.User.PaginatesServiceImpl;
 import WebShop.Service.User.ProductServiceImpl;
@@ -33,11 +33,11 @@ public class SearchController extends BaseController {
 	public ModelAndView Search(@RequestParam String keyword) {
 		if (keyword != null) {
 			keyword1 = keyword;
-			List<ProductDto> list = categoryService.Search(keyword.toString());
+			List<Product> list = categoryService.Search(keyword.toString());
 			mvShare.addObject("list", list);
 			mvShare.addObject("keyword", keyword);
 			int totalData = categoryService.Search(keyword.toString()).size();
-			PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
+			Paginates paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage, 1);
 			mvShare.addObject("paginateInfo", paginateInfo);
 			mvShare.addObject("productsPaginate",
 					categoryService.GetProductsPaginateKeyWord(paginateInfo.getStart(), totalProductsPage, keyword));
@@ -62,7 +62,7 @@ public class SearchController extends BaseController {
 	public ModelAndView Product(@PathVariable String currentPage) {
 		mvShare.setViewName("user/searchitem/search");
 		int totalData = categoryService.Search(keyword1).size();
-		PaginatesDto paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage,
+		Paginates paginateInfo = paginatesService.GetInfoPaginate(totalData, totalProductsPage,
 				Integer.parseInt(currentPage));
 		mvShare.addObject("paginateInfo", paginateInfo);
 		mvShare.addObject("productsPaginate",

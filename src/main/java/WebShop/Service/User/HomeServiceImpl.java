@@ -11,12 +11,12 @@ import WebShop.Dao.CategorysDao;
 import WebShop.Dao.MenusDao;
 import WebShop.Dao.ProductsDao;
 import WebShop.Dao.SlidesDao;
-import WebShop.Dto.ProductDto;
-import WebShop.Enity.Bills;
-import WebShop.Enity.BillsDetail;
-import WebShop.Enity.Categorys;
-import WebShop.Enity.Menus;
-import WebShop.Enity.Slides;
+import WebShop.Dto.Bills;
+import WebShop.Dto.BillsDetail;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Menus;
+import WebShop.Dto.Product;
+import WebShop.Dto.Slides;
 
 @Service
 public class HomeServiceImpl implements IHomeService{
@@ -43,20 +43,20 @@ public class HomeServiceImpl implements IHomeService{
 		return menusDao.GetDataMenus();
 	}
 
-	public List<ProductDto> GetDataProducts() {
-		List<ProductDto> listProduct = productsDao.GetDataProducts();
+	public List<Product> GetDataProducts() {
+		List<Product> listProduct = productsDao.GetDataProducts();
 		return listProduct;
 	}
-	public List<ProductDto> GetNewProducts() {
-		List<ProductDto> listProduct = productsDao.GetNewProducts();
+	public List<Product> GetNewProducts() {
+		List<Product> listProduct = productsDao.GetNewProducts();
 		return listProduct;
 	}
-	public List<ProductDto> GetHighLightProducts() {
-		List<ProductDto> listProduct = productsDao.GetHighLightProducts();
+	public List<Product> GetHighLightProducts() {
+		List<Product> listProduct = productsDao.GetHighLightProducts();
 		return listProduct;
 	}
-	public List<ProductDto> GetFourProduct() {
-		List<ProductDto> listProduct = productsDao.GetFourProduct();
+	public List<Product> GetFourProduct() {
+		List<Product> listProduct = productsDao.GetFourProduct();
 		return listProduct;
 	}
 	//-=-=-=-=-=-=-=-=-=-=phan admin-=-=-=-=-=-

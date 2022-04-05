@@ -4,16 +4,25 @@
 <head>
 <title>Trang chủ</title>
 <style>
+.imaga{
+	border-radius: 15px;
+	object-fit: cover;
+}
 .imagi {
-	object-fit: fill;
 	object-fit: cover;
 	height: 300px;
+	border-radius: 15px;
+}
+
+.thumbnail {
+	border-radius: 15px;
 }
 
 .newimg {
 	object-fit: cover;
 	width: auto;
 	height: 250px;
+	border-radius: 15px;
 }
 
 .thumbnail:hover {
@@ -60,33 +69,27 @@ Body Section
 						</strong></a></li>
 				</ul>
 			</div>
-
-			<a class="shopBtn btn-block" href="#">Upcoming products <br>
-				<small>Click to view</small></a> <br>
 			<h3>Có thể bạn quan tâm</h3>
 			<c:if test="${ fourproduct.size() > 0 }">
-				<ul class="nav nav-list promowrapper">
+				<ul class="nav nav-list" style="list-style-type:none;">
 					<c:forEach var="item" items="${ fourproduct }" varStatus="loop">
-						<li>
-							<div class="thumbnail">
-								<a class="zoomTool"
-									href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
-									title="add to cart"><span class="icon-search"></span> Xem
-									nhanh</a> <img
-									src="<c:url value="/assets/user/img/products/${ item.picture }"/>"
-									alt="bootstrap template">
+						<li style="margin-top: 10px" >
+							<div class="thumbnail ">
+								<a class="zoomTool" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>" title="add to cart"><span class="icon-search"></span> Xem
+									nhanh</a> 
+								<img class="imaga" src="<c:url value="/assets/user/img/products/${ item.picture }"/>" alt="bootstrap template">
 								<div class="caption">
 									<h4>
-										<a class="defaultBtn"
-											href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>">
+										<a class="defaultBtn" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>">
 											Xem </a> <span class="pull-right"><fmt:formatNumber
 												type="number" groupingUsed="true" value="${ item.price }" />₫</span>
 									</h4>
 								</div>
 							</div>
 						</li>
+						</c:forEach>
 				</ul>
-				</c:forEach>
+			
 			</c:if>
 		</div>
 		<div class="span9">

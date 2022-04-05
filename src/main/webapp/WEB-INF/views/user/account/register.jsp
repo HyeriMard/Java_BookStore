@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="span12">
 			<ul class="breadcrumb">
-				<li><a href="/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
+				<li><a href="trang-chu">Trang chủ</a> <span class="divider">/</span></li>
 				<li class="active">Tài khoản</li>
 			</ul>
 			<h3>Tài khoản</h3>

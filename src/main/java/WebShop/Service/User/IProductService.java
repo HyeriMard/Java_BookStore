@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import WebShop.Dto.ProductDto;
+import WebShop.Dto.Product;
 
 @Service
 public interface IProductService {
-	public ProductDto GetOneProductsByID(long id);
-	public List<ProductDto> GetOneProductsByIDCategory(int id);
+	public Product GetOneProductsByID(long id);
+	public List<Product> GetOneProductsByIDCategory(int id);
 	
-	public List<ProductDto> GetAllProduct();
-	public List<ProductDto> GetAllProductsPaginate( int start, int end);
-	public List<ProductDto> GetProducts();
-	public int CreateProduct(ProductDto newPro);
-	public List<ProductDto> GetProductByID(long id);
+	public List<Product> GetAllProduct();
+	public List<Product> GetAllProductsPaginate( int start, int end);
+	public List<Product> GetProducts();
+	public int CreateProduct(Product newPro);
+	public List<Product> GetProductByID(long id);
 	public int DeleteProduct(long id);
-	public int EditProduct(ProductDto pro) ;
+	public int EditProduct(Product pro) ;
 
 }

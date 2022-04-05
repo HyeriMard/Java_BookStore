@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import WebShop.Dto.ProductDto;
-import WebShop.Enity.Categorys;
-import WebShop.Enity.Menus;
-import WebShop.Enity.Slides;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Menus;
+import WebShop.Dto.Product;
+import WebShop.Dto.Slides;
 
 @Service
 public interface IHomeService {
@@ -16,6 +16,6 @@ public interface IHomeService {
 	public List<Slides> GetDataSlide();
 	public List<Categorys> GetDataCategorys();
 	public List<Menus> GetDataMenus();
-	public List<ProductDto> GetDataProducts();
+	public List<Product> GetDataProducts();
 	
 }

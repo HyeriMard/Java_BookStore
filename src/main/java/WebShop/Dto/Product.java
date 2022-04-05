@@ -2,7 +2,7 @@ package WebShop.Dto;
 
 import java.sql.Date;
 
-public class ProductDto {
+public class Product {
 	private long id;
 	private int cateID;
 	private String name;
@@ -16,7 +16,7 @@ public class ProductDto {
 	private Date updated_at;
 	private String picture;
 
-	public ProductDto() {
+	public Product() {
 		super();
 	}
 

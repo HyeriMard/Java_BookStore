@@ -1,15 +1,15 @@
 package WebShop.Dto;
 
-public class CartDto {
+public class Cart {
 	private int quanty;
 	private double totalPrice;
-	private ProductDto product;
+	private Product product;
 
-	public CartDto() {
+	public Cart() {
 
 	}
 
-	public CartDto(int quanty, double totalPrice, ProductDto product) {
+	public Cart(int quanty, double totalPrice, Product product) {
 		this.quanty = quanty;
 		this.totalPrice = totalPrice;
 		this.product = product;
@@ -31,11 +31,11 @@ public class CartDto {
 		this.totalPrice = totalPrice;
 	}
 
-	public ProductDto getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public void setProduct(ProductDto product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 

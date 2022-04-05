@@ -21,7 +21,7 @@ Body Section
 	<div class="row product-content">
 		<div class="span12">
 			<ul class="breadcrumb" style="border-radius: 10px">
-				<li><a href="/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
+				<li><a href="/WebShop/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
 				<li class="active">Chi tiết sản phẩm</li>
 			</ul>
 			<div class="well well-small" style="border-radius: 10px">

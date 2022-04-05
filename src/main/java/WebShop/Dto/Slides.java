@@ -1,4 +1,4 @@
-package WebShop.Enity;
+package WebShop.Dto;
 
 public class Slides {
 	private int id;

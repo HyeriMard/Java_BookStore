@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import WebShop.Dto.ProductDto;
-import WebShop.Enity.Categorys;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Product;
 
 @Service
 public interface ICategoryService {
-	public List<ProductDto> GetAllProductsByID(int id);
+	public List<Product> GetAllProductsByID(int id);
 
-	public List<ProductDto> GetDataProductsPaginate(int id, int start, int end);
+	public List<Product> GetDataProductsPaginate(int id, int start, int end);
 	
 	public List<Categorys> GetCatetByID(long id);
 	
@@ -23,6 +23,6 @@ public interface ICategoryService {
 	
 	
 	public List<Categorys> GetDataCategorys();
-	public List<ProductDto> Search(String keyword);
-	public List<ProductDto> GetProductsPaginateKeyWord(int start, int totalPage, String keyword);
+	public List<Product> Search(String keyword);
+	public List<Product> GetProductsPaginateKeyWord(int start, int totalPage, String keyword);
 }

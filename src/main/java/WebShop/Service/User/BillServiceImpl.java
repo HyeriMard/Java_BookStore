@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import WebShop.Dao.BillsDao;
-import WebShop.Dto.CartDto;
-import WebShop.Enity.Bills;
-import WebShop.Enity.BillsDetail;
+import WebShop.Dto.Bills;
+import WebShop.Dto.BillsDetail;
+import WebShop.Dto.Cart;
 
 @Service
 public class BillServiceImpl implements IBillService {
@@ -23,9 +23,9 @@ public class BillServiceImpl implements IBillService {
 	}
 
 	@Override
-	public void AddBillsDetail(HashMap<Long, CartDto> carts) {
+	public void AddBillsDetail(HashMap<Long, Cart> carts) {
 		long idBills = billsDao.GetIDLastBills();
-		for (Map.Entry<Long, CartDto> itemCart : carts.entrySet()) {
+		for (Map.Entry<Long, Cart> itemCart : carts.entrySet()) {
 			BillsDetail billsDetail = new BillsDetail();
 			billsDetail.setId_bills(idBills);
 			billsDetail.setId_product(itemCart.getValue().getProduct().getId());

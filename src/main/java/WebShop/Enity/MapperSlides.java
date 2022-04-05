@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import WebShop.Dto.Slides;
+
 public class MapperSlides implements RowMapper<Slides>{
 
 	@Override

@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/layouts/taglib.jsp"%>
+<head>
 <title>Liên hệ</title>
+</head>
 <body>
 	<div class="well well-small">
 		<h1>Visit us</h1>

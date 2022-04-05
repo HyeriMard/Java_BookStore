@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import WebShop.Dto.Slides;
 import WebShop.Enity.MapperSlides;
-import WebShop.Enity.Slides;
 
 @Repository
 public class SlidesDao extends BaseDao{

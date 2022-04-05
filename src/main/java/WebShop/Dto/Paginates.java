@@ -1,9 +1,9 @@
 package WebShop.Dto;
 
-public class PaginatesDto {
+public class Paginates {
 	private int currentPage, limit, start, end, totalPage;
 
-	public PaginatesDto() {
+	public Paginates() {
 		super();
 	}
 

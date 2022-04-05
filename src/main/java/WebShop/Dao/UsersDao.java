@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import WebShop.Enity.Categorys;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Users;
 import WebShop.Enity.MapperCategorys;
 import WebShop.Enity.MapperUsers;
-import WebShop.Enity.Users;
 
 @Repository
 public class UsersDao extends BaseDao {

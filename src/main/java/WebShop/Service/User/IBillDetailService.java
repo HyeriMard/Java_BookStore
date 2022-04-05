@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import WebShop.Enity.BillsDetail;
+import WebShop.Dto.BillsDetail;
 
 @Service
 public interface IBillDetailService {

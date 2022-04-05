@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import WebShop.Dto.CartDto;
-import WebShop.Enity.Bills;
-import WebShop.Enity.Categorys;
-import WebShop.Enity.Users;
+import WebShop.Dto.Bills;
+import WebShop.Dto.Cart;
+import WebShop.Dto.Users;
 import WebShop.Service.User.BillServiceImpl;
 import WebShop.Service.User.CartServiceImpl;
 
@@ -42,9 +41,9 @@ public class CartController extends BaseController {
 	// thêm giỏ hàng
 	@RequestMapping(value = "AddCart/{id}")
 	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable long id) {
-		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
+		HashMap<Long, Cart> cart = (HashMap<Long, Cart>) session.getAttribute("Cart");
 		if (cart == null) {
-			cart = new HashMap<Long, CartDto>();
+			cart = new HashMap<Long, Cart>();
 		}
 		cart = cartService.AddCart(id, cart);
 		session.setAttribute("Cart", cart);
@@ -57,9 +56,9 @@ public class CartController extends BaseController {
 	@RequestMapping(value = "gio-hang/EditCart/{id}/{quanty}")
 	public String EditCart(HttpServletRequest request, HttpSession session, @PathVariable long id,
 			@PathVariable int quanty) {
-		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
+		HashMap<Long, Cart> cart = (HashMap<Long, Cart>) session.getAttribute("Cart");
 		if (cart == null) {
-			cart = new HashMap<Long, CartDto>();
+			cart = new HashMap<Long, Cart>();
 		}
 		cart = cartService.EditCart(id, quanty, cart);
 		session.setAttribute("Cart", cart);
@@ -70,9 +69,9 @@ public class CartController extends BaseController {
 	// delete giỏ hàng
 	@RequestMapping(value = "DeleteCart/{id}")
 	public String DeleteCart(HttpServletRequest request, HttpSession session, @PathVariable long id) {
-		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
+		HashMap<Long, Cart> cart = (HashMap<Long, Cart>) session.getAttribute("Cart");
 		if (cart == null) {
-			cart = new HashMap<Long, CartDto>();
+			cart = new HashMap<Long, Cart>();
 		}
 		cart = cartService.DeleteCart(id, cart);
 		session.setAttribute("Cart", cart);
@@ -102,7 +101,7 @@ public class CartController extends BaseController {
 		bill.setQuanty((Integer) session.getAttribute("TotalQuantyCart"));
 		bill.setTotal((Double) session.getAttribute("TotalPriceCart"));
 		if (billService.AddBill(bill) > 0) {
-			HashMap<Long, CartDto> carts = (HashMap<Long, CartDto>) session.getAttribute("Cart");
+			HashMap<Long, Cart> carts = (HashMap<Long, Cart>) session.getAttribute("Cart");
 			billService.AddBillsDetail(carts);
 		}
 		session.removeAttribute("Cart");

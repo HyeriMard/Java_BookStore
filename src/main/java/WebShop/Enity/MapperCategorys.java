@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import WebShop.Dto.Categorys;
+
 public class MapperCategorys implements RowMapper<Categorys>{
 	
 	@Override

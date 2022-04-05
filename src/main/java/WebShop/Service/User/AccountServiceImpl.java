@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import WebShop.Dao.UsersDao;
-import WebShop.Enity.Categorys;
-import WebShop.Enity.Users;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Users;
 
 @Service
 public class AccountServiceImpl implements IAccountService {

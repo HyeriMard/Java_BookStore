@@ -2,13 +2,13 @@ package WebShop.Service.User;
 
 import org.springframework.stereotype.Service;
 
-import WebShop.Dto.PaginatesDto;
+import WebShop.Dto.Paginates;
 
 @Service
 public class PaginatesServiceImpl {
 	
-	public PaginatesDto GetInfoPaginate(int totalData, int limit, int currentPage) {
-		PaginatesDto paginate = new PaginatesDto();
+	public Paginates GetInfoPaginate(int totalData, int limit, int currentPage) {
+		Paginates paginate = new Paginates();
 		paginate.setLimit(limit);
 		paginate.setTotalPage(SetInfoTotalPage(totalData, limit));
 		paginate.setCurrentPage(checkCurrentPage(currentPage, paginate.getTotalPage()));

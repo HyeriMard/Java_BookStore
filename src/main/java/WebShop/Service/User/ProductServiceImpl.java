@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import WebShop.Dao.BaseDao;
 import WebShop.Dao.ProductsDao;
-import WebShop.Dto.ProductDto;
+import WebShop.Dto.Product;
 
 @Service
 public class ProductServiceImpl implements IProductService {
@@ -16,40 +16,40 @@ public class ProductServiceImpl implements IProductService {
 	ProductsDao productsDao = new ProductsDao();
 
 	@Override
-	public ProductDto GetOneProductsByID(long id) {
-		List<ProductDto> listProduct = productsDao.GetOneProductsByID(id);
+	public Product GetOneProductsByID(long id) {
+		List<Product> listProduct = productsDao.GetOneProductsByID(id);
 		return listProduct.get(0);
 	}
 
 	@Override
-	public List<ProductDto> GetOneProductsByIDCategory(int id) {
+	public List<Product> GetOneProductsByIDCategory(int id) {
 		return productsDao.GetAllProductsByID(id);
 	}
 
 	@Override
-	public List<ProductDto> GetAllProduct() {
+	public List<Product> GetAllProduct() {
 		return productsDao.GetAllProduct();
 	}
 
 	@Override
-	public List<ProductDto> GetAllProductsPaginate(int start, int totalPage) {
+	public List<Product> GetAllProductsPaginate(int start, int totalPage) {
 		return productsDao.GetAllProductsPaginate(start, totalPage);
 	}
 
 	// -=-=-=-=-=admin-=-=--=-=-=
 	@Override
-	public List<ProductDto> GetProducts() {
-		List<ProductDto> listProduct = productsDao.GetProducts();
+	public List<Product> GetProducts() {
+		List<Product> listProduct = productsDao.GetProducts();
 		return listProduct;
 	}
 
 	@Override
-	public int CreateProduct(ProductDto newPro) {
+	public int CreateProduct(Product newPro) {
 		return productsDao.CreateProdut(newPro);
 	}
 
 	@Override
-	public List<ProductDto> GetProductByID(long id) {
+	public List<Product> GetProductByID(long id) {
 		return productsDao.GetOneProductsByID(id);
 	}
 
@@ -59,7 +59,7 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public int EditProduct(ProductDto pro) {
+	public int EditProduct(Product pro) {
 		return productsDao.EditProdut(pro);
 	}
 

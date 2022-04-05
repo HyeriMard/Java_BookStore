@@ -14,8 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import WebShop.Controller.User.BaseController;
-import WebShop.Dto.ProductDto;
-import WebShop.Enity.Categorys;
+import WebShop.Dto.Categorys;
+import WebShop.Dto.Product;
 import WebShop.Service.User.CategoryServiceImpl;
 import WebShop.Service.User.HomeServiceImpl;
 @Controller

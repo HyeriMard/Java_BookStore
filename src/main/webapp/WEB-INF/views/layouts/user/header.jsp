@@ -33,7 +33,7 @@ Navigation Bar Section
 				</ul>
 				<form:form action="search" method="GET" accept-charset="utf-8" class="navbar-search pull-right">
 					<input name="keyword" value="${keyword}" required size="30" type="text" placeholder="Search for something elfe" class="search-query span2 ">
-					<button type="submit" class="defaultBtn pull-right" style="border-radius: 10px; margin-left: 5px;  margin-right: 5px"> Search </button>
+					<button type="submit" class="defaultBtn pull-right" style="border-radius: 10px;margin-bottom:5px; margin-left: 5px;  margin-right: 5px"> Search </button>
 				</form:form>
 			</div>
 		</div>

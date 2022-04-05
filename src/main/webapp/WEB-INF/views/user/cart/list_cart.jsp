@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="span12">
 			<ul class="breadcrumb">
-				<li><a href="">Trang chủ</a> <span class="divider">/</span></li>
+				<li><a href="/WebShop/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
 				<li class="active">Giỏ hàng</li>
 			</ul>
 			<div class="well well-small">

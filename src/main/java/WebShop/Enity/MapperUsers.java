@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import WebShop.Dto.Users;
+
 public class MapperUsers implements RowMapper<Users>{
 	@Override
 	public Users mapRow(ResultSet rs, int rowNum) throws SQLException {

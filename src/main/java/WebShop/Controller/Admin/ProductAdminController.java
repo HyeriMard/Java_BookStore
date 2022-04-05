@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
-import WebShop.Dto.ProductDto;
+import WebShop.Dto.Product;
 import WebShop.Service.User.CategoryServiceImpl;
 
 import WebShop.Service.User.ProductServiceImpl;
@@ -59,7 +59,7 @@ public class ProductAdminController extends BaseAdminController {
 			mvShare.clear();
 			mvShare.setViewName("admin/products/createProduct");
 			// add Attribute
-			mvShare.addObject("newPro", new ProductDto());
+			mvShare.addObject("newPro", new Product());
 			// lấy danh sách cate
 			mvShare.addObject("cates", _categoryService.GetDataCategorys());
 		}
@@ -67,11 +67,11 @@ public class ProductAdminController extends BaseAdminController {
 	}
 
 	@RequestMapping(value = "/admin/them-san-pham", method = RequestMethod.POST)
-	public ModelAndView Create(@ModelAttribute("newPro") ProductDto newPro,
+	public ModelAndView Create(@ModelAttribute("newPro") Product newPro,
 			@RequestParam(value = "img", required = false) MultipartFile photo) {
 
 		// chuyen charset sang UTF-8
-		ProductDto pro = ConvertCharsets(newPro);
+		Product pro = ConvertCharsets(newPro);
 
 		// kiem tra xem đủ thông tin chưa
 		if (photo.isEmpty() || pro.getDetail().equals("") || pro.getName().equals("") || pro.getTitle().equals("")
@@ -117,7 +117,7 @@ public class ProductAdminController extends BaseAdminController {
 		if (isLogin()) {
 			mvShare.clear();
 			// lấy ra pro dc chọn
-			ProductDto pro = _productService.GetProductByID(id).get(0);
+			Product pro = _productService.GetProductByID(id).get(0);
 
 			mvShare.addObject("product", pro);
 			// lấy thể loại thằng dc chọn
@@ -157,7 +157,7 @@ public class ProductAdminController extends BaseAdminController {
 		if (isLogin()) {
 			mvShare.clear();
 			// lấy ra pro dc chọn
-			ProductDto pro = _productService.GetProductByID(id).get(0);
+			Product pro = _productService.GetProductByID(id).get(0);
 			mvShare.addObject("editPro", pro);
 
 			// lấy ra cate của pro dc chọn
@@ -169,15 +169,15 @@ public class ProductAdminController extends BaseAdminController {
 	}
 
 	@RequestMapping(value = "/admin/sua-san-pham", method = RequestMethod.POST)
-	public ModelAndView Edit(@ModelAttribute("editPro") ProductDto editPro,
+	public ModelAndView Edit(@ModelAttribute("editPro") Product editPro,
 			@RequestParam(value = "img", required = false) MultipartFile photo) {
 		mvShare.clear();
 		// chuyen charset sang UTF-8
-		ProductDto pro = ConvertCharsets(editPro);
+		Product pro = ConvertCharsets(editPro);
 		System.out.print(pro.getCateID());
 		
 		// lấy id để tìm pro trong database
-		ProductDto pro_temp = _productService.GetProductByID(editPro.getId()).get(0);
+		Product pro_temp = _productService.GetProductByID(editPro.getId()).get(0);
 		// set img cũ tạm
 		pro.setPicture(pro_temp.getPicture());
 
@@ -229,7 +229,7 @@ public class ProductAdminController extends BaseAdminController {
 		return mvShare;
 	}
 
-	ProductDto ConvertCharsets(ProductDto pro) {
+	Product ConvertCharsets(Product pro) {
 		// phan ten
 		byte[] bytes = pro.getName().getBytes(StandardCharsets.ISO_8859_1);
 		pro.setName(new String(bytes, StandardCharsets.UTF_8));

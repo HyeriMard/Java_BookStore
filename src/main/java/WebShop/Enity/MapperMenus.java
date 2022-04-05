@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import WebShop.Dto.Menus;
+
 public class MapperMenus implements RowMapper<Menus> {
 
 	@Override

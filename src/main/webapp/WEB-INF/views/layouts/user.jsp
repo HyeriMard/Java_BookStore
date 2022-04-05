@@ -24,6 +24,9 @@
 <link rel="shortcut icon"
 	href="<c:url value="/assets/user/ico/favicon.ico"/>">
 <decorator:head />
+<style>
+
+</style>
 </head>
 <body>
 	<!-- 
@@ -34,10 +37,9 @@
 			<div class="container">
 				<div class="alignR">
 					<div class="pull-left socialNw">
-						<a href="#"><span class="icon-twitter"></span></a> <a href="#"><span
-							class="icon-facebook"></span></a> <a href="#"><span
-							class="icon-youtube"></span></a> <a href="#"><span
-							class="icon-tumblr"></span></a>
+						<a href="https://twitter.com/" target="_blank"><span class="icon-twitter"></span></a> 
+						<a href="https://www.facebook.com/" target="_blank"><span class="icon-facebook"></span></a> 
+						<a href="https://youtube.com/" target="_blank"><span class="icon-youtube"></span></a> 
 					</div>
 					<a class="active" href="trang-chu"> <span class="icon-home"></span>
 						Trang chủ

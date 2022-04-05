@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import WebShop.Enity.Bills;
-import WebShop.Enity.BillsDetail;
-import WebShop.Enity.Categorys;
+import WebShop.Dto.Bills;
+import WebShop.Dto.BillsDetail;
+import WebShop.Dto.Categorys;
 import WebShop.Enity.MapperBillForAdmin;
 import WebShop.Enity.MapperBills;
 import WebShop.Enity.MapperBillsDetail;
