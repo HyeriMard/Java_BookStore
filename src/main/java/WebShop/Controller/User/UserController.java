@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import WebShop.Dto.Bills;
 import WebShop.Dto.Users;
 import WebShop.Service.User.AccountServiceImpl;
 
@@ -42,12 +41,14 @@ public class UserController extends BaseController{
 	}
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.POST)
 	public ModelAndView Login(HttpSession session, @ModelAttribute("user") Users user) {
+		mvShare.clear();
 		user = accountService.CheckAccount(user);
 		if(user != null) {
 			mvShare.setViewName("redirect:trang-chu");
 			session.setAttribute("LoginInfo", user);
 		}else {
 			mvShare.addObject("statusLogin", "Đăng nhập thất bại");
+			mvShare.setViewName("user/account/register");
 		}
 		return mvShare;
 	}

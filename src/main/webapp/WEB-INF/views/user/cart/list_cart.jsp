@@ -8,14 +8,12 @@
 	<div class="row">
 		<div class="span12">
 			<ul class="breadcrumb">
-				<li><a href="/WebShop/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
+				<li><a href="/WebShop/trang-chu">Trang chủ</a> <span
+					class="divider">/</span></li>
 				<li class="active">Giỏ hàng</li>
 			</ul>
 			<div class="well well-small">
-				<h1>
-					Giỏ hàng <small class="pull-right"> 2 Items are in the cart
-					</small>
-				</h1>
+				<h1>Giỏ hàng</h1>
 				<hr class="soften" />
 
 				<table class="table table-bordered table-condensed">
@@ -40,8 +38,8 @@
 										value="${ item.value.totalPrice }" /> ₫</td>
 								<td><input type="number" min="0" max="1000" class="span1"
 									style="max-width: 34px" placeholder="1"
-									id="quanty-cart-${ item.key }" size="16" type="text" value="${ item.value.quanty }">
-								</td>
+									id="quanty-cart-${ item.key }" size="16" type="text"
+									value="${ item.value.quanty }"></td>
 								<td><button data-id="${ item.key }"
 										class="btn btn-mini btn-danger edit-cart" type="button">
 										<span class="icon-edit"></span>
@@ -50,21 +48,28 @@
 									class="btn btn-mini btn-danger" type="button"> <span
 										class="icon-remove"></span>
 								</a></td>
-								
+
 							</tr>
-							
+
 						</c:forEach>
 					</tbody>
 				</table>
+				<c:if test="${ Cart.size() > 0 }">
 				<div class="text-right">
-				<strong><span>Tổng tiền :</span>
-				<fmt:formatNumber type="number" groupingUsed="true"
-										value="${ TotalPriceCart }" /> ₫</strong></div>
-				<br /> <a href="products.html" class="shopBtn btn-large"><span
-					class="icon-arrow-left"></span> Tiếp tục mua sắm </a> <a
-					href="<c:url value="checkout"/>" class="shopBtn btn-large pull-right"> Thanh
-					toán <span class="icon-arrow-right"></span>
-				</a>
+					<strong><span>Tổng tiền :</span> <fmt:formatNumber
+							type="number" groupingUsed="true" value="${ TotalPriceCart }" />
+						₫</strong>
+				</div>
+				</c:if>
+				
+				<br /> <a href="/WebShop/trang-chu" class="shopBtn btn-large"><span
+					class="icon-arrow-left"></span> Tiếp tục mua sắm </a>
+				<c:if test="${ Cart.size() > 0 }">
+					<a href="<c:url value="checkout"/>"
+						class="shopBtn btn-large pull-right"> Thanh toán <span
+						class="icon-arrow-right"></span>
+					</a>
+				</c:if>
 			</div>
 		</div>
 	</div>

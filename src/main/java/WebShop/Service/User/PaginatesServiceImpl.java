@@ -24,7 +24,7 @@ public class PaginatesServiceImpl {
 	}
 	// vị trí sản pẩm đầu tiên
 	private int FindStart(int currentPage, int limit) {
-		return ((currentPage - 1) * limit) + 1;
+		return ((currentPage - 1) * limit);
 	}
 	// thông tin tổng số trang
 	private int SetInfoTotalPage(int totalData, int limit) {

@@ -5,7 +5,7 @@
 <header id="header">
 	<div class="row">
 		<div class="span12" style="text-align: center">
-			<a class="logo" href="trang-chu"><span></span> <img
+			<a class="logo" href="/WebShop/trang-chu"><span></span> <img
 				src="<c:url value="/assets/user/img/n5h1.png"/>"
 				alt="bootstrap sexy shop"> </a>
 		</div>
@@ -31,9 +31,9 @@ Navigation Bar Section
 						</li>
 					</c:forEach>
 				</ul>
-				<form:form action="search" method="GET" accept-charset="utf-8" class="navbar-search pull-right">
-					<input name="keyword" value="${keyword}" required size="30" type="text" placeholder="Search for something elfe" class="search-query span2 ">
-					<button type="submit" class="defaultBtn pull-right" style="border-radius: 10px;margin-bottom:5px; margin-left: 5px;  margin-right: 5px"> Search </button>
+				<form:form action="/WebShop/search" method="GET" accept-charset="utf-8" class="navbar-search pull-right">
+					<input name="keyword" value="${keyword}" required size="30" type="text" placeholder="Nhập từ khóa" class="search-query span2 ">
+					<button type="submit" class="socialNw pull-right" style="margin-left: 5px;margin-right: 5px;padding-bottom:5px;"> Tìm kiếm </button>
 				</form:form>
 			</div>
 		</div>

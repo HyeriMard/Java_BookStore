@@ -11,7 +11,7 @@
 <div class="card">
 		<div class="card-header">
 			<h3 class="card-title">
-				<strong class="text-uppercase text-danger">Danh sách thể loại</strong>
+				<strong class="text-uppercase text-danger">Danh sách đơn hàng</strong>
 			</h3>
 			
 		</div>
@@ -39,8 +39,8 @@
 							<!-- miêu tả -->
 							<td class="text-center">${item.phone}</td>
 							<!--tổng tiền-->
-							<td class="text-center">${item.total}</td>
-							
+							<td class="text-center"><fmt:formatNumber
+												type="number" groupingUsed="true" value="${item.total}" />₫</td>
 							<!--Chức năng-->
 							<td class="text-center">
 								 <a class="btn btn-info btn-sm" href="chi-tiet-don/${item.id}" role="button"> <i

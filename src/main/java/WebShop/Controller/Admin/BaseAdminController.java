@@ -1,19 +1,10 @@
 package WebShop.Controller.Admin;
 
-import java.io.IOException;
-import java.util.Enumeration;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
-
-import WebShop.Controller.User.BaseController;
-import WebShop.Service.User.HomeServiceImpl;
 
 public class BaseAdminController extends HttpServlet {
 

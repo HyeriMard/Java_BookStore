@@ -5,14 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import WebShop.Dao.BaseDao;
 import WebShop.Dao.BillsDao;
 import WebShop.Dao.CategorysDao;
 import WebShop.Dao.MenusDao;
 import WebShop.Dao.ProductsDao;
 import WebShop.Dao.SlidesDao;
-import WebShop.Dto.Bills;
-import WebShop.Dto.BillsDetail;
 import WebShop.Dto.Categorys;
 import WebShop.Dto.Menus;
 import WebShop.Dto.Product;

@@ -13,8 +13,9 @@
 			<div class="row">
 				<div class="span12">
 					<div class="well">
-					 <form:form action="checkout" method="POST" modelAttribute="bills" class="form-horizontal">
+					 <form:form action="checkout" method="POST" modelAttribute="bills" class="form-horizontal" >
 							<h3>Thanh toán đơn hàng</h3>
+							<h4>${ statusEmpty }</h4>
 							<div class="control-group">
 								<label class="control-label"> Họ tên <sup>*</sup></label>
 								<div class="controls">

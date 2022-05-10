@@ -5,11 +5,13 @@
 <title>Danh sách</title>
 <style>
 .imagi {
-	object-fit: fill;
 	object-fit: cover;
-	height: 300px;
+	height: 250px;
+	border-radius: 5px;
 }
-
+.thumbnail{
+	border-radius: 15px;
+}
 .thumbnail:hover {
 	box-shadow: 10px 10px 5px grey;
 }
@@ -39,6 +41,17 @@
 .pagination a:hover:not(.active) {
 	background-color: #ddd;
 }
+.zoomTool{
+	border-radius: 15px;
+}
+.shopBtn{
+	border-radius: 15px;
+	margin-top:15px;
+}
+.shopBtn:hover {
+	background: #2ecc71;
+	box-shadow: 10px 10px 5px grey;
+}
 </style>
 </head>
 <body>
@@ -57,10 +70,12 @@
 						varStatus="loop">
 						<li class="span4">
 							<div class="thumbnail">
-								<a href="product_details.html" class="overlay"></a> <a
-									class="zoomTool" href="product_details.html"
+								<a href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>" class="overlay"></a> 
+								<a
+									class="zoomTool" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
 									title="add to cart"><span class="icon-search"></span> Xem
-									chi tiết</a> <a
+									chi tiết</a> 
+									<a
 									href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"> <img
 									class="imagi"
 									src="<c:url value="/assets/user/img/products/${ item.picture }"/>"
@@ -71,14 +86,13 @@
 										<strong><fmt:formatNumber type="number"
 												groupingUsed="true" value="${ item.price }" /> ₫</strong>
 									</p>
-									<h4>
-										<a class="shopBtn" href="#" title="add to cart"> Thêm vào
-											giỏ hàng </a>
-									</h4>
-									<div class="actionList">
-										<a class="pull-left" href="#">Add to Wish List </a> <a
-											class="pull-left" href="#"> Add to Compare </a>
-									</div>
+									<form class="form-horizontal qtyFrm" method="get"
+										action="<c:url value="/AddCart/${ item.id }"/>">
+										<p>${ product.title }</p>
+										<button type="submit" class="shopBtn">
+											<span class=" icon-shopping-cart"></span> Thêm vào giỏ hàng
+										</button>
+									</form>
 									<br class="clr">
 								</div>
 							</div>
@@ -110,7 +124,8 @@
 			</c:if>
 		</c:forEach>
 		<c:if test="${ paginateInfo.currentPage < paginateInfo.totalPage }">
-			<a href="<c:url value="/san-pham/${ categoryid }/${ paginateInfo.totalPage }"/>">&raquo;</a>
+			<a
+				href="<c:url value="/san-pham/${ categoryid }/${ paginateInfo.totalPage }"/>">&raquo;</a>
 		</c:if>
 	</div>
 </body>

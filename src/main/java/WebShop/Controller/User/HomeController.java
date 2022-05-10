@@ -9,6 +9,8 @@ public class HomeController extends BaseController {
 
 	@RequestMapping(value = { "/", "/trang-chu" })
 	public ModelAndView Index() {
+		mvShare.clear();
+		mvShare.addObject("menus", _homeService.GetDataMenus());
 		mvShare.addObject("slides", _homeService.GetDataSlide());
 		mvShare.addObject("categorys", _homeService.GetDataCategorys());
 		mvShare.addObject("products", _homeService.GetDataProducts());

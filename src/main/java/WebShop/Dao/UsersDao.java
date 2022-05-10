@@ -5,9 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import WebShop.Dto.Categorys;
 import WebShop.Dto.Users;
-import WebShop.Enity.MapperCategorys;
 import WebShop.Enity.MapperUsers;
 
 @Repository

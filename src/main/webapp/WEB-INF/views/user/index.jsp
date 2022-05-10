@@ -75,12 +75,12 @@ Body Section
 					<c:forEach var="item" items="${ fourproduct }" varStatus="loop">
 						<li style="margin-top: 10px" >
 							<div class="thumbnail ">
-								<a class="zoomTool" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>" title="add to cart"><span class="icon-search"></span> Xem
+								<a class="zoomTool" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>" title="add to cart" style="border-radius: 15px"><span class="icon-search"></span> Xem
 									nhanh</a> 
 								<img class="imaga" src="<c:url value="/assets/user/img/products/${ item.picture }"/>" alt="bootstrap template">
 								<div class="caption">
 									<h4>
-										<a class="defaultBtn" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>">
+										<a class="defaultBtn" style="border-radius: 15px;padding-top:5px" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>">
 											Xem </a> <span class="pull-right"><fmt:formatNumber
 												type="number" groupingUsed="true" value="${ item.price }" />₫</span>
 									</h4>
@@ -137,7 +137,7 @@ New Products
 									<c:forEach var="item" items="${ new_product }" varStatus="loop">
 										<li class="span3">
 											<div class="thumbnail">
-												<a class="zoomTool"
+												<a class="zoomTool"  style="border-radius: 15px;"
 													href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
 													title="add to cart"> <span class="icon-search"></span>
 													Xem nhanh
@@ -170,10 +170,7 @@ New Products
 	Featured Products
 	-->
 		<div class="well well-small" style="border-radius: 10px">
-			<h3>
-				<a class="btn btn-mini pull-right" href="products.html"
-					title="View more"> Xem thêm <span class="icon-plus"></span></a> Sản
-				phẩm nổi bật
+			<h3> Sản phẩm nổi bật
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
@@ -182,7 +179,7 @@ New Products
 						<c:forEach var="item" items="${ highlight }" varStatus="loop">
 							<li class="span4">
 								<div class="thumbnail">
-									<a class="zoomTool"
+									<a class="zoomTool" style="border-radius: 15px;"
 										href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
 										title="add to cart"> <span class="icon-search"></span> Xem
 										nhanh
@@ -194,10 +191,10 @@ New Products
 									<div class="caption">
 										<h5>${ item.name }</h5>
 										<h4>
-											<a class="defaultBtn"
+											<a class="defaultBtn"  style="border-radius: 15px;"
 												href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
 												title="Click to view"><span class="icon-zoom-in"></span></a>
-											<a class="shopBtn"
+											<a class="shopBtn"  style="border-radius: 15px;"
 												href="<c:url value="/AddCart/${ item.id }"/>"
 												title="add to cart"><span class="icon-plus"></span></a> <span
 												class="pull-right"><fmt:formatNumber type="number"

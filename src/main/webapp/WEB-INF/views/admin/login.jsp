@@ -20,8 +20,7 @@
                 <div class="col-8 ml-4">
                     <div class="form-group">
                         <h6><strong>Tên đăng nhập</strong></h6>
-                        <form:input class="form-control" type="text"  path="user" />
-                       
+                        <form:input class="form-control" type="text"  path="user" />  
                     </div>
                     <div class="form-group">
                     <h6><strong>Mật khẩu</strong></h6>

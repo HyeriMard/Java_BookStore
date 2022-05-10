@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="well well-small">
-		<h1>Visit us</h1>
+		<h1>Địa chỉ</h1>
 		<hr class="soften" />
 		<div class="row-fluid">
 			<div class="span8 relative">
@@ -23,21 +23,22 @@
 					<fieldset>
 						<div class="control-group">
 
-							<input type="text" placeholder="name" class="input-xlarge" />
+							<input type="text" placeholder="Họ & tên" class="input-xlarge" />
 
 						</div>
 						<div class="control-group">
 
-							<input type="text" placeholder="email" class="input-xlarge" />
+							<input type="text" placeholder="Gmail" class="input-xlarge" />
 
 						</div>
 						<div class="control-group">
 
-							<input type="text" placeholder="subject" class="input-xlarge" />
+							<input type="text" placeholder="Tiêu đề" class="input-xlarge" />
 
 						</div>
 						<div class="control-group">
-							<textarea rows="3" id="textarea" class="input-xlarge"></textarea>
+							<textarea rows="3" id="textarea" placeholder="Nội dung"
+								class="input-xlarge"></textarea>
 
 						</div>
 

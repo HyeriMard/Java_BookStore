@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import WebShop.Service.User.AccountServiceImpl;
 import WebShop.Service.User.BillDetailServiceImpl;
 import WebShop.Service.User.BillServiceImpl;
-import WebShop.Service.User.CategoryServiceImpl;
 
 @Controller
 public class CustomerAdminController extends BaseAdminController {

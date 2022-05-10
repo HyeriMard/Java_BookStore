@@ -78,9 +78,7 @@
 									<a href="#">Quên mật khẩu</a>
 								</div>
 							</div>
-							<c:if test="${ statusLogin }">
-								<h4> ${ statusLogin } </h4>
-							</c:if>
+							<h4> ${ statusLogin } </h4>
 						</form:form>
 					</div>
 				</div>

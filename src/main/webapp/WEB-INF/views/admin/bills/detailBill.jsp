@@ -104,10 +104,11 @@
 
 											<c:forEach var="item" items="${ detail }" varStatus="loop">
 												<tr>
-
 													<td class="text-center">${item.name_product}</td>
 													<td class="text-center">${item.quanty}</td>
-													<td class="text-center">${item.total}</td>
+													<td class="text-center"><fmt:formatNumber
+												type="number" groupingUsed="true" value="${item.total}" /> ₫</td>
+													
 												</tr>
 											</c:forEach>
 
@@ -117,8 +118,10 @@
 								<div class="row">
 									<div class="col-12">
 										<h4 class="text-bold text-right">
-											Tổng tiển: ${bill.total} <sup>đ</sup>
+											Tổng tiển: <fmt:formatNumber
+												type="number" groupingUsed="true" value="${bill.total}" />  <sup>đ</sup>
 										</h4>
+										
 									</div>
 
 								</div>

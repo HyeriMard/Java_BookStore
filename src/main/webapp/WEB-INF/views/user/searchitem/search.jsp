@@ -9,7 +9,9 @@
 	object-fit: cover;
 	height: 300px;
 }
-
+.thumbnail{
+	border-radius: 15px;
+}
 .thumbnail:hover {
 	box-shadow: 10px 10px 5px grey;
 }
@@ -63,7 +65,7 @@
 						<li class="span4">
 							<div class="thumbnail">
 								<a href="product_details.html" class="overlay"></a> <a
-									class="zoomTool" href="product_details.html"
+									class="zoomTool" style="border-radius: 15px;" href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"
 									title="add to cart"><span class="icon-search"></span> Xem
 									chi tiết</a> <a
 									href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>"> <img
@@ -77,13 +79,9 @@
 												groupingUsed="true" value="${ item.price }" /> ₫</strong>
 									</p>
 									<h4>
-										<a class="shopBtn" href="#" title="add to cart"> Thêm vào
+										<a class="shopBtn" style="border-radius: 15px;" href="<c:url value="/AddCart/${ item.id }"/>" title="add to cart"> Thêm vào
 											giỏ hàng </a>
 									</h4>
-									<div class="actionList">
-										<a class="pull-left" href="#">Add to Wish List </a> <a
-											class="pull-left" href="#"> Add to Compare </a>
-									</div>
 									<br class="clr">
 								</div>
 							</div>

@@ -95,20 +95,26 @@ public class CartController extends BaseController {
 	}
 	// thanh toán đơn hàng 
 	@RequestMapping(value = "checkout", method = RequestMethod.POST)
-	public String CheckoutBill(HttpServletRequest request, HttpSession session, @ModelAttribute("bills") Bills bill)
+	public ModelAndView CheckoutBill(HttpServletRequest request, HttpSession session, @ModelAttribute("bills") Bills bill)
 	{
 		bill = ConvertCharsets(bill);
 		bill.setQuanty((Integer) session.getAttribute("TotalQuantyCart"));
 		bill.setTotal((Double) session.getAttribute("TotalPriceCart"));
-		if (billService.AddBill(bill) > 0) {
-			HashMap<Long, Cart> carts = (HashMap<Long, Cart>) session.getAttribute("Cart");
-			billService.AddBillsDetail(carts);
-		}
-		session.removeAttribute("Cart");
-		return "redirect:gio-hang";
+		if(bill.getDisplay_name().equals("") || bill.getUser().equals("") || bill.getAddress().equals("") || bill.getPhone().equals("")) {
+			mvShare.addObject("statusEmpty", "Vui lòng nhập đủ thông tin thanh toán");
+			mvShare.setViewName("user/bills/checkout");
+		}else {
+			if (billService.AddBill(bill) > 0) {
+				HashMap<Long, Cart> carts = (HashMap<Long, Cart>) session.getAttribute("Cart");
+				billService.AddBillsDetail(carts);
+			}
+			session.removeAttribute("Cart");
+			session.removeAttribute("TotalQuantyCart");
+			session.removeAttribute("TotalPriceCart");
+			mvShare.setViewName("redirect:trang-chu");
+		}		
+		return mvShare;
 	}
-	
-	
 	
 	Bills ConvertCharsets(Bills bill) {
 		// phan ten

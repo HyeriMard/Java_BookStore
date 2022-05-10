@@ -58,8 +58,7 @@
 								</c:forEach>
 							</td>
 							<!--Giá-->
-							<td class="text-center">${item.price}</td>
-
+							<td class="text-center"><fmt:formatNumber type="number" groupingUsed="true" value="${item.price}" /> ₫</td>
 							<!--Chức năng-->
 							<td class="text-center">
 								<a class="btn btn-info btn-sm"  href="sua-san-pham/${item.id}" role="button">

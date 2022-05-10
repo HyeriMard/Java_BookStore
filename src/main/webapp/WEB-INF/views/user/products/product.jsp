@@ -8,6 +8,9 @@
 .product-content {
 	overflow-x: hiden;
 }
+.shopBtn{
+	border-radius: 15px;
+}
 .shopBtn:hover {
 	background: #2ecc71;
 	box-shadow: 10px 10px 5px grey;
@@ -82,13 +85,15 @@ Body Section
 									<form class="form-horizontal qtyFrm">
 										<h3>
 											<fmt:formatNumber type="number" groupingUsed="true"
-												value="${ product.price }" />
+												value="${ item.price }" />
 											₫
 										</h3>
 										<div class="btn-group">
-											<a href="product_details.html" class="defaultBtn"><span
-												class=" icon-shopping-cart"></span> Add to cart</a> <a
-												href="product_details.html" class="shopBtn">VIEW</a>
+										
+											<a style="border-radius: 15px;margin-right:10px;padding-top:10px" href="<c:url value="/AddCart/${ item.id }"/>" class="defaultBtn"><span
+												class=" icon-shopping-cart"></span> Add to cart</a> 
+												<a style="padding-top:4px;padding-bottom:4px"
+												href="<c:url value="/chi-tiet-san-pham/${ item.id }"/>" class="shopBtn">VIEW</a>
 										</div>
 									</form>
 								</div>

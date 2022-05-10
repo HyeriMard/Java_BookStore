@@ -7,11 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import WebShop.Dto.Bills;
 import WebShop.Dto.BillsDetail;
-import WebShop.Dto.Categorys;
 import WebShop.Enity.MapperBillForAdmin;
 import WebShop.Enity.MapperBills;
-import WebShop.Enity.MapperBillsDetail;
-import WebShop.Enity.MapperCategorys;
 
 @Repository
 public class BillsDao extends BaseDao {

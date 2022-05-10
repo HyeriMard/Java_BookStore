@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import WebShop.Dto.Categorys;
 import WebShop.Dto.Users;
 
 @Service

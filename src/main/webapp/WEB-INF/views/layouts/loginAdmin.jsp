@@ -19,7 +19,7 @@
            border-radius: 10px;
            margin:auto;
        }
-   </style>
+</style>
 </head>
 <body>
 <decorator:body/>
